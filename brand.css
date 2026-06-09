@@ -1,0 +1,96 @@
+/* =====================================================================
+   Lazy Creatives — shared marketing design system.
+   Served at https://lazycreatives.github.io/brand.css ; every tool page
+   (any repo under the lazycreatives.github.io domain) links it with
+   <link rel="stylesheet" href="/brand.css">. Define the brand ONCE here;
+   add a new tool by writing markup that reuses these classes.
+   ===================================================================== */
+:root{
+  --black:#0A0B0D; --console:#141A20; --blue:#86B3D3; --blue-press:#9bc0e0;
+  --slate:#3B4F5D; --green:#4ADE80; --gold:#F5C451; --red:#F2706E;
+  --ink:#EAF1F7; --muted:#9DB0C0; --line:rgba(134,179,211,.16);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(120% 80% at 50% -10%,#13171c,var(--black) 60%);
+  color:var(--ink);font-family:var(--font);line-height:1.55;min-height:100vh}
+a{color:inherit}
+.wrap{width:100%;max-width:900px;margin:0 auto}
+.wrap.wide{max-width:1040px}
+
+/* page padding wrappers */
+.page{display:flex;flex-direction:column;align-items:center;padding:5vh 6vw 8vh}
+.page-narrow{padding:5vh 6vw 9vh}
+
+/* header */
+header.lc{display:flex;align-items:center;gap:14px;margin-bottom:38px;width:100%;max-width:900px}
+header.lc img{height:46px;width:auto}
+.pill{border:1px solid var(--line);color:var(--blue);font-weight:700;font-size:13px;
+  padding:4px 11px;border-radius:99px;letter-spacing:.02em}
+header.lc .home{margin-left:auto;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+header.lc .home:hover{color:var(--blue)}
+.back{color:var(--muted);font-size:14px;text-decoration:none;font-weight:600}
+.back:hover{color:var(--blue)}
+
+/* hero type */
+h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:14px}
+h1 .g{color:var(--blue)}
+.lede{color:var(--muted);font-size:18px;max-width:62ch;margin-bottom:24px}
+
+/* notify band */
+.notify{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;
+  border:1px solid rgba(134,179,211,.35);background:rgba(134,179,211,.07);border-radius:14px;padding:14px 18px;margin-bottom:30px}
+.notify p{font-size:14.5px;color:var(--ink)} .notify p b{color:var(--blue)}
+
+/* buttons */
+a.btn{text-decoration:none;font-weight:700;font-size:15px;padding:13px 22px;border-radius:11px;
+  border:1px solid var(--line);color:var(--ink);background:rgba(134,179,211,.05);transition:.15s;display:inline-block}
+a.btn:hover{border-color:rgba(134,179,211,.5);background:rgba(134,179,211,.10)}
+a.btn.primary,a.btn.star{background:var(--blue);color:#0A0B0D;border-color:var(--blue);white-space:nowrap}
+a.btn.primary:hover,a.btn.star:hover{background:var(--blue-press)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+
+/* embedded pitch / media */
+.player{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 20px 70px rgba(0,0,0,.5)}
+.player iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+
+/* feature cards */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--console)}
+.card h3{font-size:16px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.card h3::before{content:"✓";color:var(--green);font-weight:800}
+.card p{color:var(--muted);font-size:14.5px}
+
+/* pricing */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tier{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--console);display:flex;flex-direction:column}
+.tier.pop{border-color:rgba(134,179,211,.55);box-shadow:0 16px 60px rgba(134,179,211,.12);position:relative}
+.tier.pop::after{content:"Most popular";position:absolute;top:-11px;left:24px;background:var(--blue);color:#0A0B0D;font-size:11px;font-weight:800;letter-spacing:.04em;padding:4px 10px;border-radius:99px}
+.tier h2{font-size:18px;font-weight:800;margin-bottom:4px}
+.tier .who{color:var(--muted);font-size:13px;min-height:34px}
+.price{font-size:38px;font-weight:800;letter-spacing:-.02em;margin:10px 0 2px}
+.price small{font-size:15px;color:var(--muted);font-weight:600}
+.once{color:var(--green);font-size:12.5px;font-weight:700;letter-spacing:.03em;margin-bottom:16px}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:6px 0 22px}
+.tier li{font-size:14px;color:#dbe3ec;padding-left:22px;position:relative}
+.tier li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.tier li.no{color:var(--muted)} .tier li.no::before{content:"–";color:var(--muted)}
+.cta{margin-top:auto;text-align:center;text-decoration:none;font-weight:700;font-size:15px;
+  padding:13px 18px;border-radius:11px;border:1px solid var(--line);color:var(--ink);background:rgba(134,179,211,.05);transition:.15s}
+.cta:hover{border-color:rgba(134,179,211,.5);background:rgba(134,179,211,.10)}
+.cta.primary{background:var(--blue);color:#0A0B0D;border-color:var(--blue)}
+.cta.primary:hover{background:var(--blue-press)}
+.cta.soon{opacity:.85}
+.band{margin-top:20px;border:1px solid var(--line);border-radius:18px;padding:24px 26px;background:linear-gradient(120deg,#141a20,#0d0f12);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.band h3{font-size:19px;font-weight:800;margin-bottom:4px}
+.band p{color:var(--muted);font-size:14.5px;max-width:60ch}
+.note{margin-top:34px;color:var(--muted);font-size:13.5px;line-height:1.7;border-top:1px solid var(--line);padding-top:20px}
+.note b{color:var(--ink)} .note a{color:var(--blue)}
+.tag{display:inline-block;background:rgba(74,222,128,.12);color:var(--green);font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px;margin-bottom:18px}
+
+/* footer */
+footer.lc{color:var(--muted);font-size:13px;margin-top:54px;border-top:1px solid var(--line);padding-top:20px;width:100%;max-width:900px}
+footer.lc a{color:var(--blue);text-decoration:none}
+
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
