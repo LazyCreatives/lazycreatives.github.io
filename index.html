@@ -18,8 +18,9 @@
     font-family:var(--font);line-height:1.55;min-height:100vh;display:flex;flex-direction:column;
     align-items:center;padding:8vh 6vw 7vh;text-align:center}
   .logo{width:min(440px,84vw);height:auto;margin-bottom:6px}
-  .tag{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:56ch;margin:14px 0 44px}
+  .tag{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:56ch;margin:14px 0 22px}
   .tag b{color:var(--ink)}
+  .nap{width:150px;height:150px;margin:0 0 40px}
   .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;
     width:100%;max-width:780px;text-align:left}
   .tool{border:1px solid var(--line);border-radius:16px;background:var(--console);padding:24px;
@@ -36,6 +37,11 @@
 <body>
   <img class="logo" src="logo.png" alt="Lazy Creatives">
   <p class="tag">Tools that take the <b>boring, behind-the-scenes work</b> of making music off your plate — so you stay in flow. <b>Looks lazy. Works obsessively.</b></p>
+
+  <video class="nap" autoplay loop muted playsinline aria-label="A napping sloth">
+    <source src="napping.webm" type="video/webm">
+    <source src="napping.mp4" type="video/mp4">
+  </video>
 
   <div class="tools">
     <a class="tool" href="https://lazycreatives.github.io/lazycreatives-backups/">
