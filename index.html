@@ -133,12 +133,12 @@
           <dt>Price</dt><dd>Free while in beta</dd>
         </dl>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">Windows</a>
-          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">macOS</a>
-          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">Linux</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest/download/LazyCreatives-Backups-Windows.exe">Windows</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest/download/LazyCreatives-Backups-macOS.dmg">macOS</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest/download/LazyCreatives-Backups-Linux.AppImage">Linux</a>
           <a class="btn" href="https://lazycreatives.github.io/lazycreatives-backups/">About Backups</a>
         </div>
-        <p class="fine">Downloads come from the official GitHub Releases page. The builds aren't code-signed yet, so your computer will show a warning the first time. <a href="#install" style="color:var(--blue)">Here's how to check it and continue.</a></p>
+        <p class="fine">Each button downloads the latest build straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest" style="color:var(--blue)">GitHub Releases page</a>, where you can also see every version and its fingerprint. The builds aren't code-signed yet, so your computer will show a warning the first time. <a href="#install" style="color:var(--blue)">Here's how to check it and continue.</a></p>
       </article>
 
       <article class="app">
@@ -213,7 +213,7 @@
         <h4>Windows</h4>
         <ol class="steps">
           <li><b>Optional: check the file</b> in PowerShell:
-            <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives Backups Setup *.exe"</code></pre></li>
+            <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives-Backups-Windows.exe"</code></pre></li>
           <li><b>Run the installer.</b> When the blue <b>"Windows protected your PC"</b> screen appears, click <b>More info</b>, check the app name says <b>LazyCreatives Backups</b>, then click <b>Run anyway</b>.</li>
         </ol>
       </div>
@@ -222,7 +222,7 @@
         <h4>macOS</h4>
         <ol class="steps">
           <li><b>Optional: check the file</b> in Terminal:
-            <pre><code>shasum -a 256 ~/Downloads/LazyCreatives*.dmg</code></pre></li>
+            <pre><code>shasum -a 256 ~/Downloads/LazyCreatives-Backups-macOS.dmg</code></pre></li>
           <li><b>Install.</b> Open the .dmg and drag <b>LazyCreatives Backups</b> into Applications.</li>
           <li><b>Open it the first time.</b> In Applications, right-click the app and choose <b>Open</b>, then <b>Open</b> again. On macOS 15 or later, if you only see <b>Done</b> or <b>Move to Bin</b>, click Done, go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to LazyCreatives Backups. After that it opens normally.</li>
         </ol>
@@ -232,10 +232,10 @@
         <h4>Linux</h4>
         <ol class="steps">
           <li><b>Optional: check the file:</b>
-            <pre><code>sha256sum ~/Downloads/LazyCreatives*.AppImage</code></pre></li>
+            <pre><code>sha256sum ~/Downloads/LazyCreatives-Backups-Linux.AppImage</code></pre></li>
           <li><b>Make it runnable and start it:</b>
-            <pre><code>chmod +x ~/Downloads/LazyCreatives*.AppImage
-~/Downloads/LazyCreatives*.AppImage</code></pre>
+            <pre><code>chmod +x ~/Downloads/LazyCreatives-Backups-Linux.AppImage
+~/Downloads/LazyCreatives-Backups-Linux.AppImage</code></pre>
             You can also right-click the file, open <b>Properties → Permissions</b> and tick <b>Allow executing file as program</b>. If it won't start on Ubuntu 22.04 or newer, install FUSE support with <code>sudo apt install libfuse2</code>.</li>
         </ol>
       </div>
