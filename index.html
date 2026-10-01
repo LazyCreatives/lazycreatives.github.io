@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google-site-verification" content="6Fhn8nlXMlP-Knpu7X8_m800X2rsk330xEh5zrUy-1Y">
 <title>Download Lazy Creatives — Backups &amp; Uploader</title>
-<meta name="description" content="Download Lazy Creatives Backups for Windows. What the app touches and what it never does, where your data lives, how to install the unsigned beta safely, privacy and licence terms.">
+<meta name="description" content="Download Lazy Creatives Backups for Windows, macOS and Linux. What the app touches and what it never does, where your data lives, how to install the unsigned beta safely, privacy and licence terms.">
 <meta property="og:title" content="Download Lazy Creatives">
 <meta property="og:description" content="Desktop tools for music producers. Your projects stay on your machine. Here is exactly what the apps touch, and how to install them safely.">
 <meta property="og:type" content="website">
@@ -77,6 +77,8 @@
   .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:12px;width:28px;height:28px;border-radius:99px;
     background:rgba(134,179,211,.14);color:var(--blue);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
   .steps li b{color:var(--ink)}
+  .os{margin-top:26px}
+  .os h4{font-size:16px;font-weight:800;margin-bottom:-6px}
   .warn{margin-top:18px;border:1px solid rgba(245,196,81,.35);background:rgba(245,196,81,.06);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#e9e1c9}
   .warn b{color:var(--gold)}
   pre{margin-top:10px;overflow-x:auto;background:#0d1116;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
@@ -124,16 +126,19 @@
         </div>
         <p>Finds every Ableton and FL Studio project, follows its samples, copies a complete deduplicated snapshot to a drive you choose, then re-reads every file to prove the backup opens.</p>
         <dl class="specs">
-          <dt>System</dt><dd>Windows 10 or 11, 64-bit</dd>
+          <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
+          <dt>macOS</dt><dd>Disk image (.dmg)</dd>
+          <dt>Linux</dt><dd>AppImage, runs on most distros</dd>
           <dt>Version</dt><dd>0.1 beta</dd>
           <dt>Price</dt><dd>Free while in beta</dd>
-          <dt>macOS</dt><dd>Coming later</dd>
         </dl>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">Download for Windows</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">Windows</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">macOS</a>
+          <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">Linux</a>
           <a class="btn" href="https://lazycreatives.github.io/lazycreatives-backups/">About Backups</a>
         </div>
-        <p class="fine">Downloads come from the official GitHub Releases page. The installer isn't code-signed yet, so Windows will show a warning. <a href="#install" style="color:var(--blue)">Here's how to check it and continue.</a></p>
+        <p class="fine">Downloads come from the official GitHub Releases page. The builds aren't code-signed yet, so your computer will show a warning the first time. <a href="#install" style="color:var(--blue)">Here's how to check it and continue.</a></p>
       </article>
 
       <article class="app">
@@ -169,7 +174,7 @@
           <h4>Writes</h4>
           <ul>
             <li>Dated snapshots on the backup drive or NAS you choose</li>
-            <li>Its own history at <code>%LOCALAPPDATA%\ablebackup</code></li>
+            <li>Its own history: <code>%LOCALAPPDATA%\ablebackup</code> on Windows, <code>~/.ablebackup</code> on Mac and Linux</li>
             <li>A restored copy, only into a folder you pick</li>
           </ul>
         </div>
@@ -194,22 +199,48 @@
         <div class="fact"><dt>Locked to the app</dt><dd>Each time the app starts it makes a fresh secret key, and the engine refuses any request without it. Other programs and web pages can't drive it. The engine shuts down when you close the app.</dd></div>
         <div class="fact"><dt>No account</dt><dd>There is nothing to sign up for. Backups works fully offline.</dd></div>
         <div class="fact"><dt>No auto-updates</dt><dd>The app doesn't download or install anything by itself. New versions appear on the <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">Releases page</a> and you choose when to update.</dd></div>
-        <div class="fact"><dt>Uninstalling</dt><dd>Use <b>Settings → Apps → LazyCreatives Backups → Uninstall</b>. Your backups on your drive are never removed. To clear the app's history as well, delete <code>%LOCALAPPDATA%\ablebackup</code>.</dd></div>
+        <div class="fact"><dt>Uninstalling</dt><dd>On Windows use <b>Settings → Apps → LazyCreatives Backups → Uninstall</b>. On a Mac drag the app from Applications to the Bin. On Linux delete the AppImage file. Your backups on your drive are never removed. To clear the app's history as well, delete the history folder listed above.</dd></div>
       </dl>
     </section>
 
     <section id="install">
       <h2>Installing</h2>
-      <h3>Windows will warn you. Here's why, and how to check the file.</h3>
-      <p>Code-signing certificates are on the roadmap but the beta isn't signed yet. Windows SmartScreen shows a blue <b>"Windows protected your PC"</b> screen for any new unsigned app. It means Windows doesn't recognise the publisher yet, not that it found anything wrong.</p>
-      <ol class="steps">
-        <li><b>Download only from GitHub.</b> Use the button above, which goes to <code>github.com/LazyCreatives/lazycreatives-backups/releases</code>. Don't run copies from anywhere else.</li>
-        <li><b>Optional: check the file.</b> On the release page, GitHub lists a SHA-256 fingerprint next to the installer. Compare it with your download in PowerShell:
-          <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives Backups Setup *.exe"</code></pre>
-          If the two values match, the file is exactly what was published.</li>
-        <li><b>Run the installer.</b> When the SmartScreen warning appears, click <b>More info</b>, check the app name says <b>LazyCreatives Backups</b>, then click <b>Run anyway</b>.</li>
-        <li><b>Set up.</b> Add your project folders and pick a backup drive. Nothing is copied until you press Back up.</li>
-      </ol>
+      <h3>Your computer will warn you. Here's why, and how to check the file.</h3>
+      <p>Code-signing certificates are on the roadmap but the beta isn't signed yet. Windows, macOS and Linux all treat a new unsigned app with caution. The warning means your computer doesn't recognise the publisher yet, not that it found anything wrong.</p>
+      <p><b>Always download from GitHub.</b> The buttons above go to <code>github.com/LazyCreatives/lazycreatives-backups/releases</code>. Don't run copies from anywhere else. GitHub lists a SHA-256 fingerprint next to each file on that page, and you can compare it with your download as shown below. If the two values match, the file is exactly what was published.</p>
+
+      <div class="os">
+        <h4>Windows</h4>
+        <ol class="steps">
+          <li><b>Optional: check the file</b> in PowerShell:
+            <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives Backups Setup *.exe"</code></pre></li>
+          <li><b>Run the installer.</b> When the blue <b>"Windows protected your PC"</b> screen appears, click <b>More info</b>, check the app name says <b>LazyCreatives Backups</b>, then click <b>Run anyway</b>.</li>
+        </ol>
+      </div>
+
+      <div class="os">
+        <h4>macOS</h4>
+        <ol class="steps">
+          <li><b>Optional: check the file</b> in Terminal:
+            <pre><code>shasum -a 256 ~/Downloads/LazyCreatives*.dmg</code></pre></li>
+          <li><b>Install.</b> Open the .dmg and drag <b>LazyCreatives Backups</b> into Applications.</li>
+          <li><b>Open it the first time.</b> In Applications, right-click the app and choose <b>Open</b>, then <b>Open</b> again. On macOS 15 or later, if you only see <b>Done</b> or <b>Move to Bin</b>, click Done, go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to LazyCreatives Backups. After that it opens normally.</li>
+        </ol>
+      </div>
+
+      <div class="os">
+        <h4>Linux</h4>
+        <ol class="steps">
+          <li><b>Optional: check the file:</b>
+            <pre><code>sha256sum ~/Downloads/LazyCreatives*.AppImage</code></pre></li>
+          <li><b>Make it runnable and start it:</b>
+            <pre><code>chmod +x ~/Downloads/LazyCreatives*.AppImage
+~/Downloads/LazyCreatives*.AppImage</code></pre>
+            You can also right-click the file, open <b>Properties → Permissions</b> and tick <b>Allow executing file as program</b>. If it won't start on Ubuntu 22.04 or newer, install FUSE support with <code>sudo apt install libfuse2</code>.</li>
+        </ol>
+      </div>
+
+      <p style="margin-top:18px">Once it's open, add your project folders and pick a backup drive. Nothing is copied until you press Back up.</p>
       <div class="warn"><b>If anything looks off</b>, such as a different app name, a file from another site, or a fingerprint that doesn't match, don't run it. <a href="#contact" style="color:var(--gold)">Let us know</a> instead.</div>
     </section>
 
@@ -219,7 +250,7 @@
       <p>The apps contain no analytics, no crash reporting, no ads and no tracking. The beta needs no licence key and never contacts a payment service. The apps only go online for these reasons, and only if you turn them on:</p>
       <dl class="facts">
         <div class="fact"><dt>Cloud mirror (optional)</dt><dd>If you choose to mirror backups to your own <b>Dropbox, Google Drive or OneDrive</b>, files go directly from your computer to your account. We never see them or your login.</dd></div>
-        <div class="fact"><dt>SoundCloud (Uploader)</dt><dd>Your audio goes directly to SoundCloud. Signing in passes through a small Lazy Creatives service that holds our SoundCloud app secret. It only swaps the sign-in code for your access tokens and keeps nothing. Tokens are stored on your PC, encrypted to your Windows user account.</dd></div>
+        <div class="fact"><dt>SoundCloud (Uploader)</dt><dd>Your audio goes directly to SoundCloud. Signing in passes through a small Lazy Creatives service that holds our SoundCloud app secret. It only swaps the sign-in code for your access tokens and keeps nothing. Tokens are stored on your computer. On Windows they are encrypted to your user account; Mac and Linux secure storage is being added before Uploader ships.</dd></div>
       </dl>
       <p style="margin-top:18px">We don't collect your email, your project names, your file list or your music. We have no server that could store them.</p>
     </section>
