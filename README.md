@@ -6,7 +6,7 @@ Lazy Creatives is a family of desktop tools that take the boring, behind-the-sce
 of making music off your plate. *Looks lazy. Works obsessively.*
 
 ## In this repo
-- `index.html` — the homepage (links to each tool)
+- `index.html` — the homepage: downloads, what the apps touch, install steps, privacy, licence, contact
 - `brand-guide.html` — the **entity brand sheet**: palette, type, voice, logo usage, artist brief
 - `logo.png` — primary logo (transparent) · `ref-sloth.png` — character crop for the brief
 - `brand-src/` — master art (`LC LOGO.png`) + colour swatches
