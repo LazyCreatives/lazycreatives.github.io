@@ -84,6 +84,19 @@
   pre{margin-top:10px;overflow-x:auto;background:#0d1116;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
   pre code{background:none;padding:0;color:var(--green)}
 
+  .news{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--console);padding:22px 24px}
+  .news .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .news h2{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800}
+  .news .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .news h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:800;margin:16px 0 8px}
+  .news ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .news li{font-size:14.5px;color:#d2dbe4;padding-left:18px;position:relative}
+  .news li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:99px;background:var(--blue)}
+  .news li li::before{background:var(--slate)}
+  .news li ul{margin-top:8px}
+  .news li b{color:var(--ink)}
+  .news .fine{font-size:12.5px;color:var(--muted);margin-top:16px}
+
   @media(max-width:640px){
     .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
     .nap{width:90px;height:90px}
@@ -98,6 +111,7 @@
     <img src="logo.png" alt="Lazy Creatives">
     <nav aria-label="On this page">
       <a href="#download">Download</a>
+      <a href="#whats-new">What's new</a>
       <a href="#safety">What it touches</a>
       <a href="#install">Installing</a>
       <a href="#privacy">Privacy</a>
@@ -129,7 +143,7 @@
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
           <dt>Linux</dt><dd>64-bit (x86_64) AppImage, runs on most distros</dd>
-          <dt>Version</dt><dd>0.1 beta</dd>
+          <dt>Version</dt><dd id="bk-version">0.1.6 beta</dd>
           <dt>Price</dt><dd>Free while in beta</dd>
         </dl>
         <div class="actions">
@@ -154,6 +168,43 @@
         </div>
         <p class="fine">We'll publish it here as soon as SoundCloud signs off on the integration.</p>
       </article>
+    </div>
+
+    <!-- "What's new" for the latest Backups release. The script below swaps in the
+         notes from the latest GitHub Release (written from CHANGELOG.md when it is
+         released), so this static copy is only a fallback and needs no edit. -->
+    <div class="news" id="whats-new" aria-live="polite">
+      <div class="top">
+        <h2>What's new in Backups <span id="news-version">0.1.6</span></h2>
+        <span class="when" id="news-date">2 October 2026</span>
+      </div>
+      <div id="news-body">
+        <h3>New</h3>
+        <ul>
+          <li><b>Two looks, your choice.</b> A switch at the top of Settings changes the whole app between <b>Crate</b> and <b>Sleeve</b>.
+            <ul>
+              <li><b>Crate</b> looks like a DJ library: each project is a row with a colour stripe for its genre, alternating shading, its cover, the waveform of its latest song, and its tempo and key.</li>
+              <li><b>Sleeve</b> looks like a record shop: every project gets cover art, the Library becomes a wall of covers, and each project opens as an album-style page.</li>
+            </ul></li>
+          <li>Every screen is built in both looks: Home, Library, the project page, Dig, the backup steps and Settings.</li>
+          <li><b>Play your songs in the app.</b> A player bar at the bottom plays the latest song exported from a project.</li>
+          <li><b>Cover art for every project</b>, drawn from its name and genre, so the same song looks the same in Backups and Uploader.</li>
+          <li><b>The app updates itself.</b> On Windows and Linux new versions download quietly and offer "Restart now" or "Later". On a Mac the app tells you a new version is out and takes you to the download page. After this version you won't need to download updates by hand.</li>
+          <li><b>Backing up is now three clear steps:</b> pick your projects, check what's going in, then watch each one finish.</li>
+          <li><b>Settings are grouped</b> under four headings (how it looks, your music, where backups go, when it runs), and the backup drive shows how full it is.</li>
+        </ul>
+        <h3>Better</h3>
+        <ul>
+          <li>New heading font, Bebas Neue, used for the app name and the big project name.</li>
+          <li>Dig shows your projects' real covers in the crates and uses the same genre colours as the rest of the app.</li>
+          <li>Each song on a project page shows its waveform.</li>
+        </ul>
+        <h3>Fixed</h3>
+        <ul>
+          <li>Projects no longer all come up unticked after a scan.</li>
+        </ul>
+      </div>
+      <p class="fine">Every version's notes are on its <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">release page</a>.</p>
     </div>
 
     <section id="safety">
@@ -196,7 +247,7 @@
         <div class="fact"><dt>Local engine</dt><dd>The app window talks to a small engine that runs alongside it on <code>127.0.0.1</code>. That address is only reachable from your own computer, never from your network or the internet.</dd></div>
         <div class="fact"><dt>Locked to the app</dt><dd>Each time the app starts it makes a fresh secret key, and the engine refuses any request without it. Other programs and web pages can't drive it. The engine shuts down when you close the app.</dd></div>
         <div class="fact"><dt>No account</dt><dd>There is nothing to sign up for. Backups works fully offline.</dd></div>
-        <div class="fact"><dt>No auto-updates</dt><dd>The app doesn't download or install anything by itself. New versions appear on the <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">Releases page</a> and you choose when to update.</dd></div>
+        <div class="fact"><dt>Updates</dt><dd>When it opens, the app checks the official <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">Releases page</a> for a newer version, and nowhere else. On Windows and Linux it downloads the update in the background and asks before restarting; choose "Later" and it installs next time you quit. On a Mac it shows a button to the download page and you install it yourself.</dd></div>
         <div class="fact"><dt>Uninstalling</dt><dd>On Windows use <b>Settings → Apps → LazyCreatives Backups → Uninstall</b>. On a Mac drag the app from Applications to the Bin. On Linux delete the AppImage file. Your backups on your drive are never removed. To clear the app's history as well, delete the history folder listed above.</dd></div>
       </dl>
     </section>
@@ -279,5 +330,44 @@
     © 2026 Lazy Creatives · Looks lazy. Works obsessively. · <a href="https://github.com/LazyCreatives">GitHub</a>
   </footer>
 </div>
+<script>
+/* Show the latest release's "What's new". The release job writes it from
+   CHANGELOG.md under a "## What's new" heading; the static copy above stays if
+   GitHub can't be reached or a release has no notes. Text only, never HTML. */
+(function(){
+  var api="https://api.github.com/repos/LazyCreatives/lazycreatives-backups/releases/latest";
+  if(!window.fetch) return;
+  fetch(api,{headers:{"Accept":"application/vnd.github+json"}}).then(function(r){return r.ok?r.json():null}).then(function(rel){
+    if(!rel||!rel.tag_name) return;
+    var ver=rel.tag_name.replace(/^v/,"");
+    document.getElementById("bk-version").textContent=ver+" beta";
+    var body=rel.body||"", start=body.indexOf("## What's new");
+    if(start<0) return;
+    var lines=body.slice(start).split(/\r?\n/).slice(1), out=document.createDocumentFragment(), list=null, sub=null, any=false;
+    function inline(el,text){
+      text.split(/(\*\*[^*]+\*\*)/).forEach(function(part){
+        if(/^\*\*[^*]+\*\*$/.test(part)){var b=document.createElement("b");b.textContent=part.slice(2,-2);el.appendChild(b);}
+        else if(part) el.appendChild(document.createTextNode(part));
+      });
+    }
+    for(var i=0;i<lines.length;i++){
+      var l=lines[i];
+      if(/^(---|## )/.test(l)) break;
+      var m;
+      if((m=l.match(/^###\s+(.*)/))){var h=document.createElement("h3");h.textContent=m[1];out.appendChild(h);list=sub=null;}
+      else if((m=l.match(/^- (.*)/))){if(!list){list=document.createElement("ul");out.appendChild(list);}var li=document.createElement("li");inline(li,m[1]);list.appendChild(li);sub=null;any=true;}
+      else if((m=l.match(/^\s{2,}- (.*)/))&&list&&list.lastChild){if(!sub){sub=document.createElement("ul");list.lastChild.appendChild(sub);}var s=document.createElement("li");inline(s,m[1]);sub.appendChild(s);}
+    }
+    if(!any) return;
+    var box=document.getElementById("news-body");
+    box.textContent="";box.appendChild(out);
+    document.getElementById("news-version").textContent=ver;
+    if(rel.published_at){
+      var d=new Date(rel.published_at);
+      document.getElementById("news-date").textContent=d.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+    }
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
