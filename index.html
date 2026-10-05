@@ -3,39 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="google-site-verification" content="6Fhn8nlXMlP-Knpu7X8_m800X2rsk330xEh5zrUy-1Y">
 <title>Download Lazy Creatives — Backups &amp; Uploader</title>
-<meta name="description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux. What the apps touch and what they never do, where your data lives, how to install the unsigned beta safely, privacy and licence terms.">
+<meta name="description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools for music producers. Your projects stay on your computer.">
 <meta property="og:title" content="Download Lazy Creatives">
-<meta property="og:description" content="Desktop tools for music producers. Your projects stay on your machine. Here is exactly what the apps touch, and how to install them safely.">
+<meta property="og:description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools for music producers. Your projects stay on your computer.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://lazycreatives.github.io/">
 <meta property="og:url" content="https://lazycreatives.github.io/">
 <meta property="og:image" content="https://lazycreatives.github.io/social/social-home.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/brand.css">
+<link rel="stylesheet" href="/site.css">
+<meta name="google-site-verification" content="6Fhn8nlXMlP-Knpu7X8_m800X2rsk330xEh5zrUy-1Y">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Lazy Creatives","url":"https://lazycreatives.github.io","logo":"https://lazycreatives.github.io/logo.png","description":"Desktop tools that take the boring, behind-the-scenes work of making music off your plate.","sameAs":["https://github.com/LazyCreatives"]}
 </script>
-<link rel="stylesheet" href="/brand.css">
+<script>
+/* Old links to sections that now have their own page. */
+(function(){var m={"#safety":"/under-the-hood.html","#how":"/under-the-hood.html#how","#install":"/install.html","#privacy":"/privacy.html","#licence":"/licence.html"};var t=m[location.hash];if(t)location.replace(t);})();
+</script>
 <style>
-  /* Download & trust page. Layout: one reading column; download cards up top,
-     then plain-language sections a careful producer can skim before installing. */
-  :root{color-scheme:dark}
-  header.lc{flex-wrap:wrap;row-gap:12px}
-  header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
-  header.lc nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
-  header.lc nav a:hover,header.lc nav a:focus-visible{color:var(--blue)}
-  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
-
-  .hero{display:flex;align-items:center;gap:28px;margin-bottom:34px}
-  .hero > div{min-width:0}
-  .hero h1{text-wrap:balance}
-  .hero .lede{margin-bottom:0}
-  .nap{width:120px;height:120px;flex:0 0 auto}
-
+  /* Home: download cards, the latest update, then short links to the detail pages. */
   .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
   .app{border:1px solid var(--line);border-radius:18px;background:var(--console);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
-  /* Line the two cards up row by row (buttons level) where the browser can. */
   @supports (grid-template-rows:subgrid){.app{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px}}
   .app.live{border-color:rgba(134,179,211,.5);box-shadow:0 16px 60px rgba(134,179,211,.10)}
   .app .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -44,49 +34,13 @@
   .app p{color:var(--muted);font-size:14.5px}
   .status{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
   .status.beta{background:rgba(74,222,128,.12);color:var(--green)}
-  .status.soon{background:rgba(245,196,81,.12);color:var(--gold)}
-  .specs{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;margin:4px 0}
+  .specs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;margin:4px 0}
   .specs dt{color:var(--muted)} .specs dd{color:var(--ink);font-variant-numeric:tabular-nums}
   .app .actions{margin-top:auto;padding-top:6px;gap:10px}
   .app .fine{font-size:12.5px;color:var(--muted)}
+  .app .fine a{color:var(--blue)}
 
-  section{margin-top:64px;scroll-margin-top:24px}
-  section > h2{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
-  section > h3{font-size:clamp(22px,3.2vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;text-wrap:balance}
-  section > p{color:var(--muted);max-width:66ch;margin-bottom:14px}
-  section p b{color:var(--ink)}
-  code{font-family:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;font-size:.88em;color:var(--blue);background:rgba(134,179,211,.10);padding:1px 6px;border-radius:5px;overflow-wrap:anywhere}
-
-  .touch{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:20px}
-  .col{border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
-  .col h4{font-size:15px;font-weight:800;margin-bottom:10px}
-  .col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-  .col li{font-size:14px;color:#d2dbe4;padding-left:22px;position:relative}
-  .col li::before{position:absolute;left:0;font-weight:800}
-  .col.reads li::before{content:"→";color:var(--blue)}
-  .col.writes li::before{content:"✓";color:var(--green)}
-  .col.never{background:rgba(242,112,110,.05);border-color:rgba(242,112,110,.25)}
-  .col.never li::before{content:"✕";color:var(--red)}
-
-  .facts{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:18px}
-  .fact{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
-  .fact dt{font-weight:700;font-size:15px}
-  .fact dd{color:var(--muted);font-size:14.5px}
-  .fact dd b{color:var(--ink)}
-
-  .steps{display:flex;flex-direction:column;gap:12px;margin-top:18px;counter-reset:s;list-style:none}
-  .steps li{position:relative;padding:14px 18px 14px 58px;border:1px solid var(--line);border-radius:12px;background:var(--console);color:#d2dbe4;font-size:14.5px}
-  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:12px;width:28px;height:28px;border-radius:99px;
-    background:rgba(134,179,211,.14);color:var(--blue);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-  .steps li b{color:var(--ink)}
-  .os{margin-top:26px}
-  .os h4{font-size:16px;font-weight:800;margin-bottom:-6px}
-  .warn{margin-top:18px;border:1px solid rgba(245,196,81,.35);background:rgba(245,196,81,.06);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#e9e1c9}
-  .warn b{color:var(--gold)}
-  pre{margin-top:10px;overflow-x:auto;background:#0d1116;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-  pre code{background:none;padding:0;color:var(--green)}
-
-  .news{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--console);padding:22px 24px}
+  .news{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--console);padding:22px 24px;scroll-margin-top:24px}
   .news .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
   .news h2{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800}
   .news .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -97,34 +51,20 @@
   .news li li::before{background:var(--slate)}
   .news li ul{margin-top:8px}
   .news li b{color:var(--ink)}
-  .news .fine{font-size:12.5px;color:var(--muted);margin-top:16px}
-  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-  .tabs button{font:inherit;font-size:13.5px;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
-  .tabs button:hover{color:var(--ink)}
-  .tabs button[aria-selected="true"]{color:var(--ink);background:rgba(134,179,211,.14);border-color:rgba(134,179,211,.5)}
-  .tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-  .news [hidden]{display:none}
-
-  @media(max-width:640px){
-    .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
-    .nap{width:90px;height:90px}
-    .fact{grid-template-columns:1fr}
-  }
-  @media(prefers-reduced-motion:reduce){.nap{display:none}}
+  main > section{margin-top:56px}
 </style>
 </head>
 <body>
 <div class="page">
   <header class="lc">
-    <img src="logo.png" alt="Lazy Creatives">
-    <nav aria-label="On this page">
-      <a href="#download">Download</a>
-      <a href="#whats-new">What's new</a>
-      <a href="#safety">What it touches</a>
-      <a href="#install">Installing</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#licence">Licence</a>
-      <a href="#contact">Contact</a>
+    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
+    <nav aria-label="Site">
+      <a href="/" aria-current="page">Download</a>
+      <a href="/whats-changed.html">What's changed</a>
+      <a href="/install.html">Installing</a>
+      <a href="/under-the-hood.html">Under the hood</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
     </nav>
   </header>
 
@@ -132,9 +72,9 @@
     <div class="hero">
       <div>
         <h1>Desktop tools for producers. <span class="g">Your files stay yours.</span></h1>
-        <p class="lede">Lazy Creatives apps run on your own computer. They don't need an account, they don't track you, and they never change your original projects. This page has the download and everything you'd want to know before you install.</p>
+        <p class="lede">Lazy Creatives apps run on your own computer. No account, no tracking, and they never change your original projects.</p>
       </div>
-      <img class="nap" src="napping.webp" alt="" width="120" height="120">
+      <img class="nap" src="/napping.webp" alt="" width="110" height="110">
     </div>
 
     <div class="dl" id="download">
@@ -156,7 +96,7 @@
           <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest/download/LazyCreatives-Backups-macOS-arm64.dmg">macOS</a>
           <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest/download/LazyCreatives-Backups-Linux-x86_64.AppImage">Linux</a>
         </div>
-        <p class="fine">Each button downloads the latest build straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest" style="color:var(--blue)">GitHub Releases page</a>, where you can also see every version and its fingerprint. The builds aren't code-signed yet, so your computer will show a warning the first time. <a href="#install" style="color:var(--blue)">Here's how to check it and continue.</a></p>
+        <p class="fine">Downloads come straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">GitHub Releases page</a>. The beta isn't code-signed yet, so your computer will warn you the first time: <a href="/install.html">here's how to install it safely</a>.</p>
       </article>
 
       <article class="app live">
@@ -177,9 +117,10 @@
           <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-uploader/releases/latest/download/LazyCreatives-Uploader-macOS-arm64.dmg">macOS</a>
           <a class="btn primary" href="https://github.com/LazyCreatives/lazycreatives-uploader/releases/latest/download/LazyCreatives-Uploader-Linux-x86_64.AppImage">Linux</a>
         </div>
-        <p class="fine">Each button downloads the latest build straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases/latest" style="color:var(--blue)">GitHub Releases page</a>. You'll need a SoundCloud account to post. Like Backups, it isn't code-signed yet: <a href="#install" style="color:var(--blue)">here's how to install it safely.</a></p>
+        <p class="fine">Downloads come straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases/latest">GitHub Releases page</a>. You'll need a SoundCloud account to post. Not code-signed yet either: <a href="/install.html">how to install it safely</a>.</p>
       </article>
     </div>
+
 
     <!-- "What's new" for the latest release of each app. The script below swaps in
          the notes from each app's latest GitHub Release (written from CHANGELOG.md
@@ -205,7 +146,7 @@
           <li><b>FL Studio samples no longer show as missing when FL Studio plays them.</b> If a project still remembers a sample's old spot (another computer, a network address or a different user name), Backups now finds the same file in your own folders, the same way FL Studio does.</li>
         </ul>
       </div>
-      <p class="fine">Every version's notes are on its <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">release page</a>.</p>
+      <div class="actions" style="margin-top:18px"><a class="btn" style="font-size:14px;padding:10px 18px" href="whats-changed.html#backups">See every Backups version →</a></div>
       </div>
       <div role="tabpanel" id="panel-up" aria-labelledby="tab-up" hidden>
       <div class="top">
@@ -225,133 +166,40 @@
           <li><b>Everything is unlocked</b> while the app is a free beta.</li>
         </ul>
       </div>
-      <p class="fine">Every version's notes are on its <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases" style="color:var(--blue)">release page</a>.</p>
+      <div class="actions" style="margin-top:18px"><a class="btn" style="font-size:14px;padding:10px 18px" href="whats-changed.html#uploader">See every Uploader version →</a></div>
       </div>
     </div>
 
-    <section id="safety">
-      <h2>What it touches</h2>
-      <h3>Backups reads your projects. It never edits them.</h3>
-      <p>Your originals are only ever read. Everything Backups writes goes to the backup drive you picked, plus one small history file of its own.</p>
-      <div class="touch">
-        <div class="col reads">
-          <h4>Reads</h4>
-          <ul>
-            <li>The project folders you add in Setup</li>
-            <li>The sample libraries you point it at, to find missing sounds</li>
-          </ul>
-        </div>
-        <div class="col writes">
-          <h4>Writes</h4>
-          <ul>
-            <li>Dated snapshots on the backup drive or NAS you choose</li>
-            <li>Its own history: <code>%LOCALAPPDATA%\ablebackup</code> on Windows, <code>~/.ablebackup</code> on Mac and Linux</li>
-            <li>A restored copy, only into a folder you pick</li>
-          </ul>
-        </div>
-        <div class="col never">
-          <h4>Never</h4>
-          <ul>
-            <li>Modifies, moves or deletes your original projects or samples</li>
-            <li>Uploads your audio anywhere you didn't set up yourself</li>
-            <li>Sends your project names, file list or music to us</li>
-          </ul>
-        </div>
+
+    <section id="trust">
+      <h2>Before you install</h2>
+      <h3>Safe by design.</h3>
+      <div class="tiles">
+        <a class="tile" href="/under-the-hood.html"><h4>Never edits your projects</h4><p>Backups only reads your projects and writes to the drive you pick. What each app reads, writes and never touches.</p><span class="more">Under the hood →</span></a>
+        <a class="tile" href="/install.html"><h4>Install it safely</h4><p>Why your computer warns you about a new app, and how to check the file is the real one.</p><span class="more">Installing →</span></a>
+        <a class="tile" href="/privacy.html"><h4>No tracking</h4><p>No account, no analytics, no ads. The two optional connections, listed plainly.</p><span class="more">Privacy →</span></a>
       </div>
-      <p style="margin-top:18px">When a sample has moved, Backups relinks it <b>inside the backup copy</b>, matched by file size and not just its name. The project on your machine is left exactly as it was.</p>
-      <p><b>Uploader</b> reads the bounce folders you choose and sends audio straight from your computer to your own SoundCloud account. It deletes or edits a SoundCloud track only when you click to do so.</p>
-    </section>
-
-    <section id="how">
-      <h2>How it runs</h2>
-      <h3>Everything happens on your computer.</h3>
-      <dl class="facts">
-        <div class="fact"><dt>Local engine</dt><dd>The app window talks to a small engine that runs alongside it on <code>127.0.0.1</code>. That address is only reachable from your own computer, never from your network or the internet.</dd></div>
-        <div class="fact"><dt>Locked to the app</dt><dd>Each time the app starts it makes a fresh secret key, and the engine refuses any request without it. Other programs and web pages can't drive it. The engine shuts down when you close the app.</dd></div>
-        <div class="fact"><dt>No account</dt><dd>There is nothing to sign up for. Backups works fully offline. Uploader only needs your own SoundCloud login.</dd></div>
-        <div class="fact"><dt>Updates</dt><dd>When it opens, each app checks its own official Releases page (<a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">Backups</a>, <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases" style="color:var(--blue)">Uploader</a>) for a newer version, and nowhere else. On Windows and Linux it downloads the update in the background and asks before restarting; choose "Later" and it installs next time you quit. On a Mac it shows a button to the download page and you install it yourself.</dd></div>
-        <div class="fact"><dt>Uninstalling</dt><dd>On Windows use <b>Settings → Apps</b>, pick the app, then <b>Uninstall</b>. On a Mac drag the app from Applications to the Bin. On Linux delete the AppImage file. Your backups on your drive are never removed. To clear the app's history as well, delete the history folder listed above.</dd></div>
-      </dl>
-    </section>
-
-    <section id="install">
-      <h2>Installing</h2>
-      <h3>Your computer will warn you. Here's why, and how to check the file.</h3>
-      <p>Code-signing certificates are on the roadmap but the beta isn't signed yet. Windows, macOS and Linux all treat a new unsigned app with caution. The warning means your computer doesn't recognise the publisher yet, not that it found anything wrong.</p>
-      <p><b>Always download from GitHub.</b> The buttons above go to <code>github.com/LazyCreatives/lazycreatives-backups/releases</code> and <code>github.com/LazyCreatives/lazycreatives-uploader/releases</code>. Don't run copies from anywhere else. GitHub lists a SHA-256 fingerprint next to each file on that page, and you can compare it with your download as shown below. If the two values match, the file is exactly what was published.</p>
-
-      <p>The steps below use the Backups file names. <b>For Uploader they are the same</b>: swap <code>Backups</code> for <code>Uploader</code> in the file and app names.</p>
-
-      <div class="os">
-        <h4>Windows</h4>
-        <ol class="steps">
-          <li><b>Optional: check the file</b> in PowerShell:
-            <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives-Backups-Windows-Setup.exe"</code></pre></li>
-          <li><b>Run the installer.</b> When the blue <b>"Windows protected your PC"</b> screen appears, click <b>More info</b>, check the app name says <b>LazyCreatives Backups</b>, then click <b>Run anyway</b>.</li>
-        </ol>
-      </div>
-
-      <div class="os">
-        <h4>macOS</h4>
-        <ol class="steps">
-          <li><b>Optional: check the file</b> in Terminal:
-            <pre><code>shasum -a 256 ~/Downloads/LazyCreatives-Backups-macOS-arm64.dmg</code></pre></li>
-          <li><b>Install.</b> Open the .dmg and drag <b>LazyCreatives Backups</b> into Applications.</li>
-          <li><b>Open it the first time.</b> In Applications, right-click the app and choose <b>Open</b>, then <b>Open</b> again. On macOS 15 or later, if you only see <b>Done</b> or <b>Move to Bin</b>, click Done, go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to LazyCreatives Backups. After that it opens normally.</li>
-        </ol>
-      </div>
-
-      <div class="os">
-        <h4>Linux</h4>
-        <ol class="steps">
-          <li><b>Optional: check the file:</b>
-            <pre><code>sha256sum ~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage</code></pre></li>
-          <li><b>Make it runnable and start it:</b>
-            <pre><code>chmod +x ~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage
-~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage</code></pre>
-            You can also right-click the file, open <b>Properties → Permissions</b> and tick <b>Allow executing file as program</b>. If it won't start on Ubuntu 22.04 or newer, install FUSE support with <code>sudo apt install libfuse2</code>.</li>
-        </ol>
-      </div>
-
-      <p style="margin-top:18px">Once Backups is open, add your project folders and pick a backup drive. Nothing is copied until you press Back up.</p>
-      <div class="warn"><b>If anything looks off</b>, such as a different app name, a file from another site, or a fingerprint that doesn't match, don't run it. <a href="#contact" style="color:var(--gold)">Let us know</a> instead.</div>
-    </section>
-
-    <section id="privacy">
-      <h2>Privacy</h2>
-      <h3>No tracking. Two optional connections, both listed here.</h3>
-      <p>The apps contain no analytics, no crash reporting, no ads and no tracking. The beta needs no licence key and never contacts a payment service. The apps only go online for these reasons, and only if you turn them on:</p>
-      <dl class="facts">
-        <div class="fact"><dt>Cloud mirror (optional)</dt><dd>If you choose to mirror backups to your own <b>Dropbox, Google Drive or OneDrive</b>, files go directly from your computer to your account. We never see them or your login.</dd></div>
-        <div class="fact"><dt>SoundCloud (Uploader)</dt><dd>Your audio goes directly to SoundCloud. Signing in passes through a small Lazy Creatives service that holds our SoundCloud app secret. It only swaps the sign-in code for your access tokens and keeps nothing. Tokens are stored on your computer. They are locked away in your computer's own secure storage on Windows, Mac and Linux.</dd></div>
-      </dl>
-      <p style="margin-top:18px">We don't collect your email, your project names, your file list or your music. We have no server that could store them.</p>
-    </section>
-
-    <section id="licence">
-      <h2>Licence</h2>
-      <h3>A free beta, for testing.</h3>
-      <dl class="facts">
-        <div class="fact"><dt>Cost</dt><dd>The beta is free to download and use. Nothing is for sale yet, and there are no payments, accounts or licence keys.</dd></div>
-        <div class="fact"><dt>Source code</dt><dd>The full source is <a href="https://github.com/LazyCreatives" style="color:var(--blue)">published on GitHub</a> so anyone can read exactly what the app does. It is not open source: the code may be viewed and evaluated, but not copied or redistributed. Read the <a href="https://github.com/LazyCreatives/lazycreatives-backups/blob/master/LICENSE" style="color:var(--blue)">full licence</a>.</dd></div>
-        <div class="fact"><dt>Beta software</dt><dd>The beta is provided as is, without warranty. Backups are only one copy of your work; keep your originals until you've checked a restore.</dd></div>
-      </dl>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <h3>Questions, bugs or something that worries you.</h3>
-      <p>Open an issue on GitHub and a real person will reply. Please don't paste passwords or private file paths into a public issue.</p>
+      <p>Open an issue on GitHub and a real person will reply. Please don't paste passwords or private file paths into a public issue. Found a security problem? Open an issue titled <b>"Security contact"</b> without the details, and we'll reply with a private way to send them.</p>
       <div class="actions" style="margin-top:14px">
         <a class="btn" href="https://github.com/LazyCreatives/lazycreatives-backups/issues/new">Report a Backups issue</a>
         <a class="btn" href="https://github.com/LazyCreatives/lazycreatives-uploader/issues/new">Report an Uploader issue</a>
       </div>
-      <p style="margin-top:16px">Found a security problem? Open an issue titled <b>"Security contact"</b> without the details, and we'll reply with a private way to send them.</p>
     </section>
   </main>
 
   <footer class="lc">
-    © 2026 Lazy Creatives · Looks lazy. Works obsessively. · <a href="https://github.com/LazyCreatives">GitHub</a>
+    <span>© 2026 Lazy Creatives · Looks lazy. Works obsessively.</span>
+    <nav aria-label="More">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+      <a href="/#contact">Contact</a>
+      <a href="https://github.com/LazyCreatives">GitHub</a>
+    </nav>
   </footer>
 </div>
 <script>

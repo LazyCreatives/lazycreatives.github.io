@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Under the hood — how Lazy Creatives apps work</title>
+<meta name="description" content="What Lazy Creatives Backups and Uploader read, write and never touch, how backups are verified, how duplicate uploads are caught, and how the apps run on your computer.">
+<meta property="og:title" content="Under the hood">
+<meta property="og:description" content="What Lazy Creatives Backups and Uploader read, write and never touch, how backups are verified, how duplicate uploads are caught, and how the apps run on your computer.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://lazycreatives.github.io/under-the-hood.html">
+<meta property="og:url" content="https://lazycreatives.github.io/under-the-hood.html">
+<meta property="og:image" content="https://lazycreatives.github.io/social/social-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/brand.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div class="page">
+  <header class="lc">
+    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
+    <nav aria-label="Site">
+      <a href="/">Download</a>
+      <a href="/whats-changed.html">What's changed</a>
+      <a href="/install.html">Installing</a>
+      <a href="/under-the-hood.html" aria-current="page">Under the hood</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <h1>Under the <span class="g">hood.</span></h1>
+        <p class="lede">For the curious: what the apps touch, how a backup is checked, and how everything stays on your computer.</p>
+      </div>
+      <img class="nap" src="/napping.webp" alt="" width="110" height="110">
+    </div>
+
+    <section id="touch">
+      <h2>What it touches</h2>
+      <h3>Backups reads your projects. It never edits them.</h3>
+      <div class="touch">
+        <div class="col reads">
+          <h4>Reads</h4>
+          <ul>
+            <li>The project folders you add in Setup</li>
+            <li>The sample libraries you point it at, to find missing sounds</li>
+            <li>Your exports folder, to link songs to projects</li>
+          </ul>
+        </div>
+        <div class="col writes">
+          <h4>Writes</h4>
+          <ul>
+            <li>Dated snapshots on the backup drive or NAS you choose</li>
+            <li>Its own history folder (see <a href="#data" style="color:var(--blue)">where your data lives</a>)</li>
+            <li>A restored copy, only into a folder you pick</li>
+          </ul>
+        </div>
+        <div class="col never">
+          <h4>Never</h4>
+          <ul>
+            <li>Modifies, moves or deletes your original projects or samples</li>
+            <li>Uploads your audio anywhere you didn't set up yourself</li>
+            <li>Sends your project names, file list or music to us</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:18px"><b>Uploader</b> reads the bounce folders you choose and sends audio straight from your computer to your own SoundCloud account. It edits or deletes a SoundCloud track only when you click to do so.</p>
+    </section>
+
+    <section id="backups">
+      <h2>How a backup works</h2>
+      <h3>Copied once, checked twice.</h3>
+      <dl class="facts">
+        <div class="fact"><dt>Follows every sample</dt><dd>Each project file is read to find the samples it uses, wherever they live. Supported: Ableton Live, FL Studio, Reaper, Audacity and DAWproject files.</dd></div>
+        <div class="fact"><dt>No duplicate copies</dt><dd>Every file gets a fingerprint (SHA-256) of its contents. A sample used by twenty projects is stored once on the backup drive, so snapshots stay small.</dd></div>
+        <div class="fact"><dt>Checked as it's written</dt><dd>The fingerprint is taken from the bytes that actually landed on the drive, so a file that changed mid-copy is never kept.</dd></div>
+        <div class="fact"><dt>Verified afterwards</dt><dd>Each snapshot has a list of every file with its size and fingerprint. Verifying re-reads every file and compares, which catches a half-written file or a failing drive, and checks the backed-up project finds all its samples inside the backup.</dd></div>
+        <div class="fact"><dt>Moved samples</dt><dd>When a sample has moved, Backups relinks it <b>inside the backup copy</b>, matched by file size and not just its name. The project on your computer is left exactly as it was.</dd></div>
+      </dl>
+    </section>
+
+    <section id="uploader">
+      <h2>How Uploader works</h2>
+      <h3>Never the same mix twice.</h3>
+      <dl class="facts">
+        <div class="fact"><dt>Spots repeats</dt><dd>Each mix is fingerprinted (SHA-256) from the audio file itself, not its name. Renaming a file doesn't fool it; re-rendering with a change counts as a new mix.</dd></div>
+        <div class="fact"><dt>Knows the source</dt><dd>With Backups installed, Uploader reads Backups' records on your computer to show each mix's project, tempo and genre.</dd></div>
+        <div class="fact"><dt>SoundCloud sign-in</dt><dd>Signing in passes through a small Lazy Creatives service that holds our SoundCloud app secret. It only swaps the sign-in code for your access keys and keeps nothing.</dd></div>
+        <div class="fact"><dt>Your login, locked away</dt><dd>Your SoundCloud keys are stored encrypted on your computer: with Windows' own user-account protection, the macOS Keychain, or the Linux keyring. On a Linux desktop with no keyring, the key goes in a file only your user can read.</dd></div>
+      </dl>
+    </section>
+
+    <section id="how">
+      <h2>How it runs</h2>
+      <h3>Everything happens on your computer.</h3>
+      <dl class="facts">
+        <div class="fact"><dt>Two parts</dt><dd>The window you see is a desktop app (built with Electron). The work is done by a small engine written in Python that starts and stops with it.</dd></div>
+        <div class="fact"><dt>Local only</dt><dd>The two talk over <code>127.0.0.1</code>, an address only reachable from your own computer, never from your network or the internet.</dd></div>
+        <div class="fact"><dt>Locked to the app</dt><dd>Each time the app starts it makes a fresh secret key, and the engine refuses any request without it. Other programs and web pages can't drive it.</dd></div>
+        <div class="fact"><dt>Updates</dt><dd>When it opens, each app checks its own official Releases page (<a href="https://github.com/LazyCreatives/lazycreatives-backups/releases">Backups</a>, <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases">Uploader</a>) and nowhere else. On Windows and Linux it downloads the update in the background and asks before restarting the app; choose "Later" and it installs next time you quit. On a Mac it shows a button to the download page.</dd></div>
+        <div class="fact"><dt>Builds</dt><dd>Installers for all three systems are built automatically on GitHub for each release, and published with their fingerprints. What changed in each one is on <a href="/whats-changed.html">What's changed</a>.</dd></div>
+      </dl>
+    </section>
+
+    <section id="data">
+      <h2>Where your data lives</h2>
+      <h3>On your computer, in one folder per app.</h3>
+      <dl class="facts">
+        <div class="fact"><dt>Backups history</dt><dd><code>%LOCALAPPDATA%\ablebackup</code> on Windows, <code>~/.ablebackup</code> on Mac and Linux</dd></div>
+        <div class="fact"><dt>Your backups</dt><dd>On the drive or NAS you chose, as dated snapshot folders you can open without the app</dd></div>
+        <div class="fact"><dt>Source code</dt><dd>Published on <a href="https://github.com/LazyCreatives">GitHub</a>, so anyone can read exactly what the apps do. See the <a href="/licence.html">licence</a> for what you may do with it.</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="lc">
+    <span>© 2026 Lazy Creatives · Looks lazy. Works obsessively.</span>
+    <nav aria-label="More">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+      <a href="/#contact">Contact</a>
+      <a href="https://github.com/LazyCreatives">GitHub</a>
+    </nav>
+  </footer>
+</div>
+</body>
+</html>
