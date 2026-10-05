@@ -27,7 +27,7 @@
   .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
   .app{border:1px solid var(--line);border-radius:18px;background:var(--console);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
   @supports (grid-template-rows:subgrid){.app{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px}}
-  .app.live{border-color:rgba(134,179,211,.5);box-shadow:0 16px 60px rgba(134,179,211,.10)}
+  .app.live{border-color:rgba(134,179,211,.5);box-shadow:0 18px 40px rgba(0,0,0,.45)}
   .app .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
   .app h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
   .app h2 span{color:var(--blue)}
@@ -38,13 +38,15 @@
   .status.beta{background:rgba(74,222,128,.12);color:var(--green)}
   .specs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;margin:4px 0}
   .specs dt{color:var(--muted)} .specs dd{color:var(--ink);font-variant-numeric:tabular-nums}
-  .app .actions{margin-top:auto;padding-top:6px;gap:10px}
+  .app .actions{margin-top:auto;padding-top:6px;gap:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .app .actions .btn{padding:13px 10px;text-align:center}
   .app .fine{font-size:12.5px;color:var(--muted)}
   .app .fine a{color:var(--blue)}
 
   .news{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--console);padding:22px 24px;scroll-margin-top:24px}
   .news .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .news h2{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800}
+  .news h2{font-size:19px;letter-spacing:-.01em;color:var(--ink);font-weight:800}
+  .news h2 span{color:var(--blue)}
   .news .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
   .news h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:800;margin:16px 0 8px}
   .news ul{list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -176,7 +178,7 @@
 
     <section id="trust">
       <h2>Before you install</h2>
-      <h3>Safe by design.</h3>
+      <p class="lead">Safe by design.</p>
       <div class="tiles">
         <a class="tile" href="/under-the-hood.html"><h4>Never edits your projects</h4><p>Backups only reads your projects and writes to the drive you pick. What each app reads, writes and never touches.</p><span class="more">Under the hood →</span></a>
         <a class="tile" href="/install.html"><h4>Install it safely</h4><p>Why your computer warns you about a new app, and how to check the file is the real one.</p><span class="more">Installing →</span></a>
@@ -186,7 +188,7 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <h3>Questions, bugs or something that worries you.</h3>
+      <p class="lead">Questions, bugs or something that worries you.</p>
       <p>Open an issue on GitHub and a real person will reply. Please don't paste passwords or private file paths into a public issue. Found a security problem? Open an issue titled <b>"Security contact"</b> without the details, and we'll reply with a private way to send them.</p>
       <div class="actions" style="margin-top:14px">
         <a class="btn" href="https://github.com/LazyCreatives/lazycreatives-backups/issues/new">Report a Backups issue</a>

@@ -25,8 +25,10 @@ header.lc nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--
 /* sections */
 section{margin-top:56px;scroll-margin-top:24px}
 .hero + section{margin-top:0}
-section > h2,.kicker{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
-section > h3{font-size:clamp(22px,3.2vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;text-wrap:balance}
+/* a section opens with its topic as a real heading, then a short bold line that sums it up */
+section > h2{font-size:clamp(24px,3.4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px;text-wrap:balance}
+section > .lead{font-size:17px;color:var(--ink);font-weight:600;max-width:60ch;margin-bottom:12px;text-wrap:balance}
+.kicker{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
 section > p,.prose p{color:var(--muted);max-width:66ch;margin-bottom:14px}
 section p b{color:var(--ink)}
 section p a,.facts a,.prose a{color:var(--blue)}
