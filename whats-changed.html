@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What's changed — Lazy Creatives Backups &amp; Uploader</title>
+<meta name="description" content="Every version of Lazy Creatives Backups and Uploader, newest first, with what's new, what got better and what was fixed.">
+<meta property="og:title" content="What's changed in Lazy Creatives">
+<meta property="og:description" content="Every version of Backups and Uploader, newest first, in plain words.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://lazycreatives.github.io/whats-changed.html">
+<meta property="og:url" content="https://lazycreatives.github.io/whats-changed.html">
+<meta property="og:image" content="https://lazycreatives.github.io/social/social-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/brand.css">
+<style>
+  /* Every version of both apps. The notes are read from each app's CHANGELOG.md in
+     its public repo when the page opens, so a release shows up here with no edit. */
+  :root{color-scheme:dark}
+  header.lc{flex-wrap:wrap;row-gap:12px}
+  header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
+  header.lc nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+  header.lc nav a:hover,header.lc nav a:focus-visible{color:var(--blue)}
+  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+  .hero{display:flex;align-items:center;gap:28px;margin-bottom:28px}
+  .hero > div{min-width:0}
+  .hero .lede{margin-bottom:0}
+  .nap{width:100px;height:100px;flex:0 0 auto}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .tabs button{font:inherit;font-size:14px;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button[aria-selected="true"]{color:var(--ink);background:rgba(134,179,211,.14);border-color:rgba(134,179,211,.5)}
+  .tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  [hidden]{display:none !important}
+
+  /* One row per version: version and date on the left, the notes on the right. */
+  .log{display:flex;flex-direction:column;gap:14px}
+  .ver{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 28px;border:1px solid var(--line);border-radius:16px;background:var(--console);padding:22px 24px}
+  .ver.latest{border-color:rgba(134,179,211,.5);box-shadow:0 16px 60px rgba(134,179,211,.10)}
+  .ver .side{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  .ver .num{font-size:26px;font-weight:800;letter-spacing:-.01em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .ver .when{font-size:13px;color:var(--muted)}
+  .ver .tag{margin:4px 0 0}
+  .ver .notes{min-width:0}
+  .ver h3{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin:16px 0 8px;color:var(--ink)}
+  .ver h3:first-child{margin-top:2px}
+  .ver h3.k-new{color:var(--green)} .ver h3.k-better{color:var(--blue)} .ver h3.k-fixed{color:var(--gold)}
+  .ver ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .ver li{font-size:14.5px;color:#d2dbe4;padding-left:18px;position:relative}
+  .ver li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:99px;background:var(--blue)}
+  .ver li li::before{background:var(--slate)}
+  .ver li ul{margin-top:8px}
+  .ver li b{color:var(--ink)}
+  .ver p{font-size:14.5px;color:#d2dbe4;margin-bottom:8px}
+  .ver code{font-family:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;font-size:.88em;color:var(--blue);background:rgba(134,179,211,.10);padding:1px 6px;border-radius:5px;overflow-wrap:anywhere}
+
+  .msg{border:1px solid var(--line);border-radius:16px;padding:22px 24px;color:var(--muted);font-size:14.5px}
+  .msg a{color:var(--blue)}
+  .fine{font-size:12.5px;color:var(--muted);margin-top:20px}
+  .fine a{color:var(--blue)}
+
+  @media(max-width:640px){
+    .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
+    .nap{width:80px;height:80px}
+    .ver{grid-template-columns:1fr;padding:18px}
+    .ver .side{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+    .ver .num{font-size:22px}
+    .ver .tag{margin:0}
+  }
+  @media(prefers-reduced-motion:reduce){.nap{display:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="lc">
+    <a href="/"><img src="logo.png" alt="Lazy Creatives home"></a>
+    <nav aria-label="Site">
+      <a href="/#download">Download</a>
+      <a href="/#whats-new">Latest update</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <h1>What's <span class="g">changed</span></h1>
+        <p class="lede">Every version of both apps, newest first: what's new, what got better and what was fixed.</p>
+      </div>
+      <img class="nap" src="napping.webp" alt="" width="100" height="100">
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Choose an app">
+      <button role="tab" id="tab-backups" aria-controls="panel-backups" aria-selected="true">Backups</button>
+      <button role="tab" id="tab-uploader" aria-controls="panel-uploader" aria-selected="false">Uploader</button>
+    </div>
+
+    <div role="tabpanel" id="panel-backups" aria-labelledby="tab-backups" aria-live="polite">
+      <div class="log" id="log-backups"><p class="msg">Loading every Backups version…</p></div>
+      <p class="fine">Download any version from the <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases">Backups releases page</a>.</p>
+    </div>
+    <div role="tabpanel" id="panel-uploader" aria-labelledby="tab-uploader" aria-live="polite" hidden>
+      <div class="log" id="log-uploader"><p class="msg">Loading every Uploader version…</p></div>
+      <p class="fine">Download any version from the <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases">Uploader releases page</a>.</p>
+    </div>
+
+    <div class="actions" style="margin-top:36px">
+      <a class="btn" href="/">← Back to downloads</a>
+    </div>
+  </main>
+
+  <footer class="lc">
+    © 2026 Lazy Creatives · Looks lazy. Works obsessively. · <a href="https://github.com/LazyCreatives">GitHub</a>
+  </footer>
+</div>
+<script>
+/* Backups / Uploader switch. The address ends in #uploader or #backups so a link
+   can open straight on one app. */
+(function(){
+  var names=["backups","uploader"];
+  var tabs=names.map(function(n){return document.getElementById("tab-"+n)});
+  function pick(i,push){
+    tabs.forEach(function(t,j){
+      var on=i===j; t.setAttribute("aria-selected",on?"true":"false"); t.tabIndex=on?0:-1;
+      document.getElementById("panel-"+names[j]).hidden=!on;
+    });
+    if(push&&history.replaceState) history.replaceState(null,"","#"+names[i]);
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click",function(){pick(i,true)});
+    t.addEventListener("keydown",function(e){
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=(i+1)%2;pick(n,true);tabs[n].focus();e.preventDefault();}
+    });
+  });
+  pick(location.hash==="#uploader"?1:0,false);
+  window.addEventListener("hashchange",function(){pick(location.hash==="#uploader"?1:0,false)});
+})();
+
+/* Read each app's CHANGELOG.md from its public repo and draw one row per released
+   version. Only text is ever inserted, never HTML. "Unreleased" is skipped. */
+(function(){
+  function inline(el,text){
+    text.split(/(\*\*[^*]+\*\*|`[^`]+`)/).forEach(function(part){
+      if(!part) return;
+      var tag=/^\*\*[^*]+\*\*$/.test(part)?"b":/^`[^`]+`$/.test(part)?"code":null;
+      var t=(tag?part.slice(tag==="b"?2:1,tag==="b"?-2:-1):part).replace(/\\(.)/g,"$1");
+      if(tag){var e=document.createElement(tag);e.textContent=t;el.appendChild(e);}
+      else el.appendChild(document.createTextNode(t));
+    });
+  }
+  function parse(md){
+    md=md.replace(/<!--[\s\S]*?-->/g,"");
+    var versions=[], v=null, list=null, sub=null, last=null;
+    md.split(/\r?\n/).forEach(function(l){
+      var m;
+      if((m=l.match(/^##\s+([^\s(]+)\s*(?:\((.*)\))?\s*$/))){
+        v=/\d/.test(m[1])?{num:m[1],when:m[2]||"",notes:document.createElement("div")}:null;
+        if(v) versions.push(v);
+        list=sub=last=null; return;
+      }
+      if(!v||/^#\s/.test(l)) return;
+      if((m=l.match(/^###\s+(.*)/))){
+        var h=document.createElement("h3"); h.textContent=m[1];
+        var k=m[1].trim().toLowerCase(); if(/^(new|better|fixed)$/.test(k)) h.className="k-"+k;
+        v.notes.appendChild(h); list=sub=last=null;
+      } else if((m=l.match(/^[-*] (.*)/))){
+        if(!list){list=document.createElement("ul");v.notes.appendChild(list);}
+        last=document.createElement("li"); inline(last,m[1]); list.appendChild(last); sub=null;
+      } else if((m=l.match(/^\s{2,}[-*] (.*)/))&&list&&list.lastChild){
+        if(!sub){sub=document.createElement("ul");list.lastChild.appendChild(sub);}
+        last=document.createElement("li"); inline(last,m[1]); sub.appendChild(last);
+      } else if((m=l.match(/^\s+(\S.*)/))&&last){
+        inline(last," "+m[1]);
+      } else if(l.trim()){
+        var p=document.createElement("p"); inline(p,l.trim()); v.notes.appendChild(p); list=sub=last=null;
+      } else { last=null; }
+    });
+    return versions;
+  }
+  function draw(app,versions){
+    var box=document.getElementById("log-"+app);
+    box.textContent="";
+    versions.forEach(function(v,i){
+      var row=document.createElement("article"); row.className="ver"+(i===0?" latest":"");
+      row.id=app+"-"+v.num;
+      var side=document.createElement("div"); side.className="side";
+      var num=document.createElement("div"); num.className="num"; num.textContent=v.num; side.appendChild(num);
+      if(v.when){var w=document.createElement("div"); w.className="when"; w.textContent=v.when; side.appendChild(w);}
+      if(i===0){var t=document.createElement("span"); t.className="tag"; t.textContent="Latest"; side.appendChild(t);}
+      v.notes.className="notes";
+      row.appendChild(side); row.appendChild(v.notes); box.appendChild(row);
+    });
+  }
+  function fail(app,label){
+    var box=document.getElementById("log-"+app);
+    box.textContent="";
+    var p=document.createElement("p"); p.className="msg";
+    p.appendChild(document.createTextNode("The list couldn't load just now. You can read every "+label+" version on "));
+    var a=document.createElement("a"); a.href="https://github.com/LazyCreatives/lazycreatives-"+app+"/blob/master/CHANGELOG.md"; a.textContent="GitHub";
+    p.appendChild(a); p.appendChild(document.createTextNode("."));
+    box.appendChild(p);
+  }
+  function load(app,label){
+    if(!window.fetch){fail(app,label);return;}
+    fetch("https://raw.githubusercontent.com/LazyCreatives/lazycreatives-"+app+"/master/CHANGELOG.md")
+      .then(function(r){if(!r.ok) throw 0; return r.text();})
+      .then(function(md){var v=parse(md); if(!v.length) throw 0; draw(app,v);})
+      .catch(function(){fail(app,label);});
+  }
+  load("backups","Backups");
+  load("uploader","Uploader");
+})();
+</script>
+</body>
+</html>

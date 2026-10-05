@@ -7,6 +7,7 @@ of making music off your plate. *Looks lazy. Works obsessively.*
 
 ## In this repo
 - `index.html` — the homepage: downloads for both apps, what's new, what the apps touch, install steps, privacy, licence, contact
+- `whats-changed.html` — every version of both apps, read live from each public repo's CHANGELOG.md, so it needs no edit after a release
 - `brand.css` — shared site styles
 - `lazycreatives-backups/`, `lazycreatives-uploader/` — redirects from the old per-app pages to the homepage.
   They only take effect while the app repos themselves don't publish GitHub Pages.
