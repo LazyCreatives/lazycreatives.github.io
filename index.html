@@ -32,6 +32,8 @@
   .app h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
   .app h2 span{color:var(--blue)}
   .app p{color:var(--muted);font-size:14.5px}
+  .app .pitch{display:grid;gap:10px}
+  .app .pitch b{color:var(--ink)}
   .status{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
   .status.beta{background:rgba(74,222,128,.12);color:var(--green)}
   .specs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;margin:4px 0}
@@ -83,7 +85,8 @@
           <h2>Lazy Creatives <span>Backups</span></h2>
           <span class="status beta">Free beta</span>
         </div>
-        <p>Finds every Ableton, FL Studio, Reaper and Audacity project, follows its samples, copies a complete deduplicated snapshot to a drive you choose, then re-reads every file to prove the backup opens.</p>
+        <div class="pitch"><p><b>Browse every project you've made</b> in one library: every Ableton, FL Studio, Reaper and Audacity project on your computer, searchable by name, tempo or genre, with the songs you exported ready to play.</p>
+        <p><b>Back them up when you're ready.</b> It follows each project's samples, copies a complete deduplicated snapshot to a drive, NAS, Dropbox or Google Drive folder you choose, then re-reads every file to prove the backup opens.</p></div>
         <dl class="specs">
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>macOS 13 (Ventura) or newer, Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
