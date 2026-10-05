@@ -74,7 +74,7 @@
       <h2>How a backup works</h2>
       <p class="lead">Copied once, checked twice.</p>
       <dl class="facts">
-        <div class="fact"><dt>Follows every sample</dt><dd>Each project file is read to find the samples it uses, wherever they live. Supported: Ableton Live, FL Studio, Logic Pro, Studio One, Reaper, Audacity and DAWproject files.</dd></div>
+        <div class="fact"><dt>Follows every sample</dt><dd>Each project file is read to find the samples it uses, wherever they live. Supported: Ableton Live, FL Studio, Logic Pro, Studio One, Bitwig Studio, Reaper, Audacity and DAWproject files.</dd></div>
         <div class="fact"><dt>No duplicate copies</dt><dd>Every file gets a fingerprint (SHA-256) of its contents. A sample used by twenty projects is stored once on the backup drive, so snapshots stay small.</dd></div>
         <div class="fact"><dt>Checked as it's written</dt><dd>The fingerprint is taken from the bytes that actually landed on the drive, so a file that changed mid-copy is never kept.</dd></div>
         <div class="fact"><dt>Verified afterwards</dt><dd>Each snapshot has a list of every file with its size and fingerprint. Verifying re-reads every file and compares, which catches a half-written file or a failing drive, and checks the backed-up project finds all its samples inside the backup.</dd></div>
