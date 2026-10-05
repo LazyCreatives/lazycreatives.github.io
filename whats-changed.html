@@ -13,27 +13,10 @@
 <meta property="og:image" content="https://lazycreatives.github.io/social/social-home.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/brand.css">
+<link rel="stylesheet" href="/site.css">
 <style>
   /* Every version of both apps. The notes are read from each app's CHANGELOG.md in
      its public repo when the page opens, so a release shows up here with no edit. */
-  :root{color-scheme:dark}
-  header.lc{flex-wrap:wrap;row-gap:12px}
-  header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
-  header.lc nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
-  header.lc nav a:hover,header.lc nav a:focus-visible{color:var(--blue)}
-  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
-
-  .hero{display:flex;align-items:center;gap:28px;margin-bottom:28px}
-  .hero > div{min-width:0}
-  .hero .lede{margin-bottom:0}
-  .nap{width:100px;height:100px;flex:0 0 auto}
-
-  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .tabs button{font:inherit;font-size:14px;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer}
-  .tabs button:hover{color:var(--ink)}
-  .tabs button[aria-selected="true"]{color:var(--ink);background:rgba(134,179,211,.14);border-color:rgba(134,179,211,.5)}
-  .tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-  [hidden]{display:none !important}
 
   /* One row per version: version and date on the left, the notes on the right. */
   .log{display:flex;flex-direction:column;gap:14px}
@@ -62,24 +45,24 @@
   .fine a{color:var(--blue)}
 
   @media(max-width:640px){
-    .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
-    .nap{width:80px;height:80px}
     .ver{grid-template-columns:1fr;padding:18px}
     .ver .side{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
     .ver .num{font-size:22px}
     .ver .tag{margin:0}
   }
-  @media(prefers-reduced-motion:reduce){.nap{display:none}}
 </style>
 </head>
 <body>
 <div class="page">
   <header class="lc">
-    <a href="/"><img src="logo.png" alt="Lazy Creatives home"></a>
+    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
     <nav aria-label="Site">
-      <a href="/#download">Download</a>
-      <a href="/#whats-new">Latest update</a>
-      <a href="/#contact">Contact</a>
+      <a href="/">Download</a>
+      <a href="/whats-changed.html" aria-current="page">What's changed</a>
+      <a href="/install.html">Installing</a>
+      <a href="/under-the-hood.html">Under the hood</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
     </nav>
   </header>
 
@@ -89,7 +72,7 @@
         <h1>What's <span class="g">changed</span></h1>
         <p class="lede">Every version of both apps, newest first: what's new, what got better and what was fixed.</p>
       </div>
-      <img class="nap" src="napping.webp" alt="" width="100" height="100">
+      <img class="nap" src="/napping.webp" alt="" width="110" height="110">
     </div>
 
     <div class="tabs" role="tablist" aria-label="Choose an app">
@@ -107,12 +90,18 @@
     </div>
 
     <div class="actions" style="margin-top:36px">
-      <a class="btn" href="/">← Back to downloads</a>
+      <a class="btn primary" href="/#download">Go to downloads</a>
     </div>
   </main>
 
   <footer class="lc">
-    © 2026 Lazy Creatives · Looks lazy. Works obsessively. · <a href="https://github.com/LazyCreatives">GitHub</a>
+    <span>© 2026 Lazy Creatives · Looks lazy. Works obsessively.</span>
+    <nav aria-label="More">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+      <a href="/#contact">Contact</a>
+      <a href="https://github.com/LazyCreatives">GitHub</a>
+    </nav>
   </footer>
 </div>
 <script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Installing Lazy Creatives — check the file and get past the warning</title>
+<meta name="description" content="How to install the unsigned Lazy Creatives beta safely on Windows, macOS and Linux, check the download fingerprint, and uninstall.">
+<meta property="og:title" content="Installing Lazy Creatives">
+<meta property="og:description" content="How to install the unsigned Lazy Creatives beta safely on Windows, macOS and Linux, check the download fingerprint, and uninstall.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://lazycreatives.github.io/install.html">
+<meta property="og:url" content="https://lazycreatives.github.io/install.html">
+<meta property="og:image" content="https://lazycreatives.github.io/social/social-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/brand.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div class="page">
+  <header class="lc">
+    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
+    <nav aria-label="Site">
+      <a href="/">Download</a>
+      <a href="/whats-changed.html">What's changed</a>
+      <a href="/install.html" aria-current="page">Installing</a>
+      <a href="/under-the-hood.html">Under the hood</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <h1>Installing, <span class="g">safely.</span></h1>
+        <p class="lede">How to get past the unsigned-app warning, check the file is the real one, and uninstall.</p>
+      </div>
+      <img class="nap" src="/napping.webp" alt="" width="110" height="110">
+    </div>
+
+    <section>
+      <h2>Why the warning</h2>
+      <h3>Your computer will warn you. That's expected.</h3>
+      <p>The beta isn't code-signed yet (it's on the roadmap). Windows, macOS and Linux all treat a new unsigned app with caution. The warning means your computer doesn't recognise the publisher yet, not that it found anything wrong.</p>
+      <p><b>Always download from GitHub.</b> The download buttons go to <code>github.com/LazyCreatives/lazycreatives-backups/releases</code> and <code>github.com/LazyCreatives/lazycreatives-uploader/releases</code>. Don't run copies from anywhere else. GitHub lists a fingerprint (SHA-256) next to each file, and the optional first step below checks your download against it. If the two match, the file is exactly what was published.</p>
+      <p>The steps use the Backups file names. <b>For Uploader they're the same</b>: swap <code>Backups</code> for <code>Uploader</code>.</p>
+    </section>
+
+    <section id="windows">
+      <h2>Windows</h2>
+      <ol class="steps">
+        <li><b>Optional: check the file</b> in PowerShell:
+          <pre><code>Get-FileHash "$env:USERPROFILE\Downloads\LazyCreatives-Backups-Windows-Setup.exe"</code></pre></li>
+        <li><b>Run the installer.</b> When the blue <b>"Windows protected your PC"</b> screen appears, click <b>More info</b>, check the app name says <b>LazyCreatives Backups</b>, then click <b>Run anyway</b>.</li>
+      </ol>
+    </section>
+
+    <section id="mac">
+      <h2>macOS</h2>
+      <ol class="steps">
+        <li><b>Optional: check the file</b> in Terminal:
+          <pre><code>shasum -a 256 ~/Downloads/LazyCreatives-Backups-macOS-arm64.dmg</code></pre></li>
+        <li><b>Install.</b> Open the .dmg and drag <b>LazyCreatives Backups</b> into Applications.</li>
+        <li><b>Open it the first time.</b> In Applications, right-click the app and choose <b>Open</b>, then <b>Open</b> again. On macOS 15 or later, if you only see <b>Done</b> or <b>Move to Bin</b>, click Done, go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to LazyCreatives Backups. After that it opens normally.</li>
+      </ol>
+    </section>
+
+    <section id="linux">
+      <h2>Linux</h2>
+      <ol class="steps">
+        <li><b>Optional: check the file:</b>
+          <pre><code>sha256sum ~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage</code></pre></li>
+        <li><b>Make it runnable and start it:</b>
+          <pre><code>chmod +x ~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage
+~/Downloads/LazyCreatives-Backups-Linux-x86_64.AppImage</code></pre>
+          You can also right-click the file, open <b>Properties → Permissions</b> and tick <b>Allow executing file as program</b>. If it won't start on Ubuntu 22.04 or newer, install FUSE support with <code>sudo apt install libfuse2</code>.</li>
+      </ol>
+      <div class="warn"><b>If anything looks off</b>, such as a different app name, a file from another site, or a fingerprint that doesn't match, don't run it. <a href="/#contact">Let us know</a> instead.</div>
+    </section>
+
+    <section id="uninstall">
+      <h2>Uninstalling</h2>
+      <dl class="facts">
+        <div class="fact"><dt>Windows</dt><dd><b>Settings → Apps</b>, pick the app, then <b>Uninstall</b>.</dd></div>
+        <div class="fact"><dt>macOS</dt><dd>Drag the app from Applications to the Bin.</dd></div>
+        <div class="fact"><dt>Linux</dt><dd>Delete the AppImage file.</dd></div>
+        <div class="fact"><dt>Your backups</dt><dd>Never removed. To clear the app's own history too, delete its history folder, listed on <a href="/under-the-hood.html#data">Under the hood</a>.</dd></div>
+      </dl>
+      <div class="actions"><a class="btn primary" href="/#download">Go to downloads</a></div>
+    </section>
+  </main>
+
+  <footer class="lc">
+    <span>© 2026 Lazy Creatives · Looks lazy. Works obsessively.</span>
+    <nav aria-label="More">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/licence.html">Licence</a>
+      <a href="/#contact">Contact</a>
+      <a href="https://github.com/LazyCreatives">GitHub</a>
+    </nav>
+  </footer>
+</div>
+</body>
+</html>

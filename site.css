@@ -1,0 +1,96 @@
+/* =====================================================================
+   Lazy Creatives website — layout shared by every page on this site
+   (home, What's changed, Installing, Under the hood, Privacy, Licence).
+   Colours and buttons come from brand.css; this file adds the menu,
+   footer and the reusable content blocks. Load it after brand.css.
+   ===================================================================== */
+:root{color-scheme:dark}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* menu: same on every page; the current page carries aria-current="page" */
+header.lc{flex-wrap:wrap;row-gap:12px;margin-bottom:34px}
+header.lc .logo{display:block;line-height:0}
+header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
+header.lc nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;padding:2px 0;border-bottom:2px solid transparent}
+header.lc nav a:hover,header.lc nav a:focus-visible{color:var(--blue)}
+header.lc nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--blue)}
+
+/* page top: big title, short intro, napping sloth */
+.hero{display:flex;align-items:center;gap:28px;margin-bottom:34px}
+.hero > div{min-width:0}
+.hero h1{text-wrap:balance}
+.hero .lede{margin-bottom:0}
+.nap{width:110px;height:110px;flex:0 0 auto}
+
+/* sections */
+section{margin-top:56px;scroll-margin-top:24px}
+.hero + section{margin-top:0}
+section > h2,.kicker{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
+section > h3{font-size:clamp(22px,3.2vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;text-wrap:balance}
+section > p,.prose p{color:var(--muted);max-width:66ch;margin-bottom:14px}
+section p b{color:var(--ink)}
+section p a,.facts a,.prose a{color:var(--blue)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;font-size:.88em;color:var(--blue);background:rgba(134,179,211,.10);padding:1px 6px;border-radius:5px;overflow-wrap:anywhere}
+
+/* label / explanation rows that line up in two columns */
+.facts{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:18px}
+.fact{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.fact dt{font-weight:700;font-size:15px}
+.fact dd{color:var(--muted);font-size:14.5px}
+.fact dd b{color:var(--ink)}
+
+/* reads / writes / never columns */
+.touch{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:20px}
+.col{border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
+.col h4{font-size:15px;font-weight:800;margin-bottom:10px}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.col li{font-size:14px;color:#d2dbe4;padding-left:22px;position:relative}
+.col li::before{position:absolute;left:0;font-weight:800}
+.col.reads li::before{content:"→";color:var(--blue)}
+.col.writes li::before{content:"✓";color:var(--green)}
+.col.never{background:rgba(242,112,110,.05);border-color:rgba(242,112,110,.25)}
+.col.never li::before{content:"✕";color:var(--red)}
+
+/* numbered steps */
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:18px;counter-reset:s;list-style:none}
+.steps li{position:relative;padding:14px 18px 14px 58px;border:1px solid var(--line);border-radius:12px;background:var(--console);color:#d2dbe4;font-size:14.5px;min-width:0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:12px;width:28px;height:28px;border-radius:99px;
+  background:rgba(134,179,211,.14);color:var(--blue);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps li b{color:var(--ink)}
+.os{margin-top:26px}
+.os h4{font-size:16px;font-weight:800;margin-bottom:-6px}
+.warn{margin-top:18px;border:1px solid rgba(245,196,81,.35);background:rgba(245,196,81,.06);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#e9e1c9}
+.warn b{color:var(--gold)} .warn a{color:var(--gold)}
+pre{margin-top:10px;overflow-x:auto;background:#0d1116;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+pre code{background:none;padding:0;color:var(--green)}
+
+/* link cards ("read more" tiles) */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;margin-top:20px}
+a.tile{display:flex;flex-direction:column;gap:6px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--console);transition:.15s;min-width:0}
+a.tile:hover{border-color:rgba(134,179,211,.5)}
+a.tile h4{font-size:16px;font-weight:800}
+a.tile p{color:var(--muted);font-size:14px}
+a.tile .more{margin-top:auto;padding-top:6px;color:var(--blue);font-size:13.5px;font-weight:700}
+
+/* Backups / Uploader switch */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tabs button{font:inherit;font-size:13.5px;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);background:rgba(134,179,211,.14);border-color:rgba(134,179,211,.5)}
+.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+[hidden]{display:none !important}
+
+/* footer: same on every page */
+footer.lc{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+footer.lc nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-left:auto}
+footer.lc nav a{color:var(--muted);font-weight:600}
+footer.lc nav a:hover{color:var(--blue)}
+
+@media(max-width:640px){
+  .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
+  .nap{width:84px;height:84px}
+  .fact{grid-template-columns:1fr}
+  header.lc nav{margin-left:0;width:100%}
+  footer.lc nav{margin-left:0}
+}
+@media(prefers-reduced-motion:reduce){.nap{display:none}}
