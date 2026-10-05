@@ -146,12 +146,12 @@
           <h2>Lazy Creatives <span>Backups</span></h2>
           <span class="status beta">Free beta</span>
         </div>
-        <p>Finds every Ableton and FL Studio project, follows its samples, copies a complete deduplicated snapshot to a drive you choose, then re-reads every file to prove the backup opens.</p>
+        <p>Finds every Ableton, FL Studio, Reaper and Audacity project, follows its samples, copies a complete deduplicated snapshot to a drive you choose, then re-reads every file to prove the backup opens.</p>
         <dl class="specs">
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
           <dt>Linux</dt><dd>64-bit (x86_64) AppImage, runs on most distros</dd>
-          <dt>Version</dt><dd id="bk-version">0.1.6 beta</dd>
+          <dt>Version</dt><dd id="bk-version">0.1.7 beta</dd>
           <dt>Price</dt><dd>Free while in beta</dd>
         </dl>
         <div class="actions">
@@ -194,33 +194,18 @@
       </div>
       <div role="tabpanel" id="panel-bk" aria-labelledby="tab-bk">
       <div class="top">
-        <h2>What's new in Backups <span id="bk-news-version">0.1.6</span></h2>
-        <span class="when" id="bk-news-date">2 October 2026</span>
+        <h2>What's new in Backups <span id="bk-news-version">0.1.7</span></h2>
+        <span class="when" id="bk-news-date">3 October 2026</span>
       </div>
       <div id="bk-news-body">
         <h3>New</h3>
         <ul>
-          <li><b>Two looks, your choice.</b> A switch at the top of Settings changes the whole app between <b>Crate</b> and <b>Sleeve</b>.
-            <ul>
-              <li><b>Crate</b> looks like a DJ library: each project is a row with a colour stripe for its genre, alternating shading, its cover, the waveform of its latest song, and its tempo and key.</li>
-              <li><b>Sleeve</b> looks like a record shop: every project gets cover art, the Library becomes a wall of covers, and each project opens as an album-style page.</li>
-            </ul></li>
-          <li>Every screen is built in both looks: Home, Library, the project page, Dig, the backup steps and Settings.</li>
-          <li><b>Play your songs in the app.</b> A player bar at the bottom plays the latest song exported from a project.</li>
-          <li><b>Cover art for every project</b>, drawn from its name and genre, so the same song looks the same in Backups and Uploader.</li>
-          <li><b>The app updates itself.</b> On Windows and Linux new versions download quietly and offer "Restart now" or "Later". On a Mac the app tells you a new version is out and takes you to the download page. After this version you won't need to download updates by hand.</li>
-          <li><b>Backing up is now three clear steps:</b> pick your projects, check what's going in, then watch each one finish.</li>
-          <li><b>Settings are grouped</b> under four headings (how it looks, your music, where backups go, when it runs), and the backup drive shows how full it is.</li>
-        </ul>
-        <h3>Better</h3>
-        <ul>
-          <li>New heading font, Bebas Neue, used for the app name and the big project name.</li>
-          <li>Dig shows your projects' real covers in the crates and uses the same genre colours as the rest of the app.</li>
-          <li>Each song on a project page shows its waveform.</li>
+          <li><b>Search and filters in the Library.</b> Type part of a project name, a genre or a song title and the list narrows as you type, even with a typo. Filter by backup state, DAW, genre, tempo range, or whether a project has a song (or one on SoundCloud). One click on <b>Clear all</b> shows everything again. In the Crate look, click any column heading to sort the list by it.</li>
+          <li><b>Check for updates yourself.</b> The bottom of Settings shows which version you have and a <b>Check for updates</b> button. It tells you straight away if you are up to date, or offers the new version.</li>
         </ul>
         <h3>Fixed</h3>
         <ul>
-          <li>Projects no longer all come up unticked after a scan.</li>
+          <li><b>FL Studio samples no longer show as missing when FL Studio plays them.</b> If a project still remembers a sample's old spot (another computer, a network address or a different user name), Backups now finds the same file in your own folders, the same way FL Studio does.</li>
         </ul>
       </div>
       <p class="fine">Every version's notes are on its <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases" style="color:var(--blue)">release page</a>.</p>
@@ -359,7 +344,7 @@
     <section id="contact">
       <h2>Contact</h2>
       <h3>Questions, bugs or something that worries you.</h3>
-      <p>Open an issue on GitHub and a real person will reply. Please don't paste licence keys or private file paths into a public issue.</p>
+      <p>Open an issue on GitHub and a real person will reply. Please don't paste passwords or private file paths into a public issue.</p>
       <div class="actions" style="margin-top:14px">
         <a class="btn" href="https://github.com/LazyCreatives/lazycreatives-backups/issues/new">Report a Backups issue</a>
         <a class="btn" href="https://github.com/LazyCreatives/lazycreatives-uploader/issues/new">Report an Uploader issue</a>
