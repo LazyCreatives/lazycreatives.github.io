@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Download Lazy Creatives — Backups &amp; Uploader</title>
-<meta name="description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools for music producers. Your projects stay on your computer.">
+<meta name="description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools that find, back up and post your music for you, so you can stay in the music. Your projects stay on your computer.">
 <meta property="og:title" content="Download Lazy Creatives">
-<meta property="og:description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools for music producers. Your projects stay on your computer.">
+<meta property="og:description" content="Download Lazy Creatives Backups and Uploader for Windows, macOS and Linux: free desktop tools that find, back up and post your music for you, so you can stay in the music. Your projects stay on your computer.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://lazycreatives.github.io/">
 <meta property="og:url" content="https://lazycreatives.github.io/">
@@ -58,6 +58,28 @@
   .news li b{color:var(--text);font-weight:600}
   .news .more{margin-top:18px}
   main > section{margin-top:64px}
+  /* the jobs the apps take off you: one ruled table, fixed columns, stacks on phones */
+  .app .pitch .stop{color:var(--text);font-weight:600}
+  .hero .lede a{color:var(--accent);white-space:nowrap}
+  #jobs{margin-top:48px}
+  #jobs + .news{margin-top:32px}
+  .jobs{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:18px}
+  .job{display:grid;grid-template-columns:210px minmax(0,1fr) minmax(0,1.3fr);gap:6px 24px;padding:13px 18px;border-top:1px solid var(--border);font-size:15px}
+  .job:first-child{border-top:0}
+  .job:nth-child(odd):not(.job--head){background:var(--zebra)}
+  .job--head{background:var(--surface);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);padding-block:10px}
+  .job b{font-weight:600}
+  .job .hand{color:var(--text-faint)}
+  .job .with{color:var(--text)}
+  .job i{display:none}
+  @media (max-width:720px){
+    .job--head{display:none}
+    .job{grid-template-columns:minmax(0,1fr)}
+    .job:nth-child(odd):not(.job--head){background:none}
+    .job:nth-child(even){background:var(--zebra)}
+    .job i{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:2px}
+    .job .with i{color:var(--accent)}
+  }
 </style>
 </head>
 <body>
@@ -77,8 +99,8 @@
   <main class="wrap">
     <div class="hero">
       <div>
-        <h1>Desktop tools for producers. <span class="g">Your files stay yours.</span></h1>
-        <p class="lede">Lazy Creatives apps run on your own computer. No account, no tracking, and they never change your original projects.</p>
+        <h1>You make the music. <span class="g">We'll handle the files.</span></h1>
+        <p class="lede">Lazy Creatives finds every project you've made, backs it up, matches it to the songs you exported, and posts those songs to SoundCloud without doubles. It runs on your own computer, needs no account, and never changes your projects. <a href="#jobs">The jobs you stop doing ↓</a></p>
       </div>
       <img class="nap" src="/napping.webp" alt="" width="110" height="110">
     </div>
@@ -89,8 +111,10 @@
           <h2><span>Backups</span><small>Lazy Creatives</small></h2>
           <span class="tag">Free beta</span>
         </div>
-        <div class="pitch"><p><b>Browse every project you've made</b> in one library: every Ableton, FL Studio, Logic Pro, Studio One, Bitwig, Reaper and Audacity project on your computer, searchable by name, tempo or genre, with the songs you exported ready to play.</p>
-        <p><b>Back them up when you're ready.</b> It follows each project's samples, copies a complete deduplicated snapshot to a drive, NAS, Dropbox or Google Drive folder you choose, then re-reads every file to prove the backup opens.</p></div>
+        <div class="pitch"><p class="stop">Stop digging through folders and copying projects by hand.</p>
+        <p><b>Browse every project you've made</b> in one library: every Ableton, FL Studio, Logic Pro, Studio One, Bitwig, Reaper and Audacity project on your computer, searchable by name, tempo or genre, with the songs you exported ready to play.</p>
+        <p><b>Back them up when you're ready.</b> It follows each project's samples, copies a complete deduplicated snapshot to a drive, NAS, Dropbox or Google Drive folder you choose, then re-reads every file to prove the backup opens.</p>
+        <p>Also shows which songs came from each project, which samples are missing and which plug-ins your projects use.</p></div>
         <dl class="specs">
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>macOS 13 (Ventura) or newer, Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
@@ -111,7 +135,8 @@
           <h2><span>Uploader</span><small>Lazy Creatives</small></h2>
           <span class="tag">Free beta</span>
         </div>
-        <div class="pitch"><p>Posts your finished mixes to SoundCloud without ever posting the same one twice, and lets you edit, hide or delete your existing tracks from one place. With Backups installed, each mix knows the project it came from.</p></div>
+        <div class="pitch"><p class="stop">Stop uploading songs one by one and checking for doubles.</p>
+        <p>Posts your finished mixes to SoundCloud without ever posting the same one twice, and lets you edit, hide or delete your existing tracks from one place. With Backups installed, each mix knows the project it came from.</p></div>
         <dl class="specs">
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>macOS 13 (Ventura) or newer, Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
@@ -127,6 +152,24 @@
         <p class="fine">Downloads come straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-uploader/releases/latest">GitHub Releases page</a>. You'll need a SoundCloud account to post. Not code-signed yet either: <a href="/install.html">how to install it safely</a>.</p>
       </article>
     </div>
+
+
+    <section id="jobs">
+      <h2>The jobs you stop doing</h2>
+      <p class="lead">The file admin that eats your studio time, and what the apps do instead.</p>
+      <div class="jobs" role="table" aria-label="Jobs done by hand and with Lazy Creatives">
+        <div class="job job--head" role="row"><span role="columnheader">The job</span><span role="columnheader">By hand</span><span role="columnheader">With Lazy Creatives</span></div>
+        <div class="job" role="row"><b role="cell">Finding an old project</b><span role="cell" class="hand"><i>By hand</i>Click through folders on every drive, guessing the name.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Every project from every music program in one list. Search by name, tempo or genre.</span></div>
+        <div class="job" role="row"><b role="cell">Backing up</b><span role="cell" class="hand"><i>By hand</i>Copy folders to a drive and hope the samples came too.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Follows every sample and copies the whole project to your drive, Dropbox or Google Drive. After the first time, only what changed is copied.</span></div>
+        <div class="job" role="row"><b role="cell">Checking the backup works</b><span role="cell" class="hand"><i>By hand</i>You find out the day you need it.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Every copy is read back after it's made, to check it opens.</span></div>
+        <div class="job" role="row"><b role="cell">Missing samples</b><span role="cell" class="hand"><i>By hand</i>Open the project, see the errors, hunt for the files.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Shows which projects are missing samples, finds the ones that moved and backs them up. Your project stays as it is.</span></div>
+        <div class="job" role="row"><b role="cell">Which song came from which project</b><span role="cell" class="hand"><i>By hand</i>Guess from names like “final_v3_REAL.wav”.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Each project lists the songs exported from it, ready to play.</span></div>
+        <div class="job" role="row"><b role="cell">What's already on SoundCloud</b><span role="cell" class="hand"><i>By hand</i>Scroll your profile and try to remember.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Songs you've posted show a SoundCloud link, in both apps.</span></div>
+        <div class="job" role="row"><b role="cell">Posting a mix</b><span role="cell" class="hand"><i>By hand</i>Upload, type the title, pick a genre, find a cover, one song at a time.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Export a mix and post it in one click. It makes a cover from the sound, and with Backups installed the tempo and genre come from its project.</span></div>
+        <div class="job" role="row"><b role="cell">Double posts</b><span role="cell" class="hand"><i>By hand</i>Check by eye, and still post the WAV and the MP3.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Never posts the same song twice, even when it's saved in another format.</span></div>
+        <div class="job" role="row"><b role="cell">Tidying your SoundCloud</b><span role="cell" class="hand"><i>By hand</i>Open each track's edit page in the browser.</span><span role="cell" class="with"><i>With Lazy Creatives</i>Edit, hide or delete every track, and sort them into playlists, from one list.</span></div>
+      </div>
+    </section>
 
 
     <!-- "What's new" for the latest release of each app. The script below swaps in
