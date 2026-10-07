@@ -18,36 +18,38 @@
   /* Every version of both apps. The notes are read from each app's CHANGELOG.md in
      its public repo when the page opens, so a release shows up here with no edit. */
 
-  /* One row per version: version and date on the left, the notes on the right. */
-  .log{display:flex;flex-direction:column;gap:14px}
-  .ver{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 28px;border:1px solid var(--line);border-radius:16px;background:var(--console);padding:22px 24px}
-  .ver.latest{border-color:rgba(134,179,211,.5);box-shadow:0 16px 60px rgba(134,179,211,.10)}
+  /* One row per version, in one ruled block: version and date in a fixed left column,
+     the notes on the right. The newest version has a blue stripe down its left edge. */
+  .log{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface)}
+  .log > .msg{border:0;border-radius:0}
+  .ver{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;border-top:1px solid var(--border);padding:20px 22px;box-shadow:inset 3px 0 0 transparent}
+  .ver:first-child{border-top:0}
+  .ver.latest{box-shadow:inset 3px 0 0 var(--accent)}
   .ver .side{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
-  .ver .num{font-size:26px;font-weight:800;letter-spacing:-.01em;line-height:1.1;font-variant-numeric:tabular-nums}
-  .ver .when{font-size:13px;color:var(--muted)}
-  .ver .tag{margin:4px 0 0}
+  .ver .num{font-size:24px;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+  .ver .when{font-size:13.5px;color:var(--text-faint)}
+  .ver .tag{margin:4px 0 0;color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,transparent);background:var(--accent-soft)}
   .ver .notes{min-width:0}
-  .ver h3{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin:16px 0 8px;color:var(--ink)}
+  .ver h3{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin:18px 0 8px;color:var(--text-faint)}
   .ver h3:first-child{margin-top:2px}
-  .ver h3.k-new{color:var(--green)} .ver h3.k-better{color:var(--blue)} .ver h3.k-fixed{color:var(--gold)}
+  .ver h3.k-new{color:var(--ok)} .ver h3.k-better{color:var(--accent)} .ver h3.k-fixed{color:var(--warn)}
   .ver ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-  .ver li{font-size:14.5px;color:#d2dbe4;padding-left:18px;position:relative}
-  .ver li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:99px;background:var(--blue)}
-  .ver li li::before{background:var(--slate)}
+  .ver li{font-size:15px;color:var(--text-dim);padding-left:18px;position:relative}
+  .ver li::before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:1px;background:var(--accent)}
+  .ver li li::before{background:var(--border-interactive)}
   .ver li ul{margin-top:8px}
-  .ver li b{color:var(--ink)}
-  .ver p{font-size:14.5px;color:#d2dbe4;margin-bottom:8px}
-  .ver code{font-family:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;font-size:.88em;color:var(--blue);background:rgba(134,179,211,.10);padding:1px 6px;border-radius:5px;overflow-wrap:anywhere}
+  .ver li b{color:var(--text);font-weight:600}
+  .ver p{font-size:15px;color:var(--text-dim);margin-bottom:8px}
 
-  .msg{border:1px solid var(--line);border-radius:16px;padding:22px 24px;color:var(--muted);font-size:14.5px}
-  .msg a{color:var(--blue)}
-  .fine{font-size:12.5px;color:var(--muted);margin-top:20px}
-  .fine a{color:var(--blue)}
+  .msg{border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;color:var(--text-dim);font-size:15px}
+  .msg a{color:var(--accent)}
+  .fine{font-size:13.5px;color:var(--text-faint);margin-top:16px}
+  .fine a{color:var(--accent)}
 
   @media(max-width:640px){
-    .ver{grid-template-columns:1fr;padding:18px}
+    .ver{grid-template-columns:1fr;padding:16px}
     .ver .side{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
-    .ver .num{font-size:22px}
+    .ver .num{font-size:21px}
     .ver .tag{margin:0}
   }
 </style>
@@ -55,7 +57,7 @@
 <body>
 <div class="page">
   <header class="lc">
-    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
+    <a class="brand" href="/" aria-label="Lazy Creatives home"><img src="/sloth-mark.png" alt="" width="30" height="38"><span><b>Lazy Creatives</b><small>Looks lazy. Works obsessively.</small></span></a>
     <nav aria-label="Site">
       <a href="/">Download</a>
       <a href="/whats-changed.html" aria-current="page">What's changed</a>
