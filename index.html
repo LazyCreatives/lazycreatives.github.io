@@ -24,44 +24,46 @@
 </script>
 <style>
   /* Home: download cards, the latest update, then short links to the detail pages. */
-  .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
-  .app{border:1px solid var(--line);border-radius:18px;background:var(--console);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
-  @supports (grid-template-rows:subgrid){.app{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px}}
-  .app.live{border-color:rgba(134,179,211,.5);box-shadow:0 18px 40px rgba(0,0,0,.45)}
-  .app .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-  .app h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
-  .app h2 span{color:var(--blue)}
-  .app p{color:var(--muted);font-size:14.5px}
-  .app .pitch{display:grid;gap:10px}
-  .app .pitch b{color:var(--ink)}
-  .status{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
-  .status.beta{background:rgba(74,222,128,.12);color:var(--green)}
-  .specs{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;margin:4px 0}
-  .specs dt{color:var(--muted)} .specs dd{color:var(--ink);font-variant-numeric:tabular-nums}
-  .app .actions{margin-top:auto;padding-top:6px;gap:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .app .actions .btn{padding:13px 10px;text-align:center}
-  .app .fine{font-size:12.5px;color:var(--muted)}
-  .app .fine a{color:var(--blue)}
+  .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+  .app{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+  @supports (grid-template-rows:subgrid){.app{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:14px}}
+  .app .top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  /* the app's name as in its sidebar: brush capitals in Sloth Blue, the maker underneath */
+  .app h2{display:flex;flex-direction:column;line-height:1;font-weight:400}
+  .app h2 span{font-family:var(--display);font-size:40px;letter-spacing:.03em;color:var(--accent)}
+  .app h2 small{font-size:13px;color:var(--text-faint);margin-top:2px}
+  .app p{color:var(--text-dim);font-size:15px}
+  .app .pitch{display:grid;gap:10px;align-content:start}
+  .app .pitch b{color:var(--text);font-weight:600}
+  /* what it runs on: a ruled table, same label column in both cards */
+  .specs{display:grid;grid-template-columns:76px minmax(0,1fr);font-size:14px;border-top:1px solid var(--border);align-content:start}
+  .specs dt,.specs dd{padding:8px 0;border-bottom:1px solid var(--border)}
+  .specs dt{color:var(--text-faint)} .specs dd{color:var(--text)}
+  .app .actions{margin-top:0;gap:8px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-self:end}
+  .app .actions .btn{padding:0 8px}
+  .app .fine{font-size:13px;color:var(--text-faint)}
+  .app .fine a{color:var(--accent)}
 
-  .news{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--console);padding:22px 24px;scroll-margin-top:24px}
-  .news .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .news h2{font-size:19px;letter-spacing:-.01em;color:var(--ink);font-weight:800}
-  .news h2 span{color:var(--blue)}
-  .news .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-  .news h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:800;margin:16px 0 8px}
+  .news{margin-top:20px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);padding:20px 22px;scroll-margin-top:24px}
+  .news .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:4px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .news h2{font-size:19px;color:var(--text);font-weight:600;letter-spacing:-.01em}
+  .news h2 span{color:var(--text-dim)}
+  .news .when{font-size:13.5px;color:var(--text-faint)}
+  .news h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin:18px 0 6px}
   .news ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-  .news li{font-size:14.5px;color:#d2dbe4;padding-left:18px;position:relative}
-  .news li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:99px;background:var(--blue)}
-  .news li li::before{background:var(--slate)}
+  .news li{font-size:15px;color:var(--text-dim);padding-left:18px;position:relative}
+  .news li::before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:1px;background:var(--accent)}
+  .news li li::before{background:var(--border-interactive)}
   .news li ul{margin-top:8px}
-  .news li b{color:var(--ink)}
-  main > section{margin-top:56px}
+  .news li b{color:var(--text);font-weight:600}
+  .news .more{margin-top:18px}
+  main > section{margin-top:64px}
 </style>
 </head>
 <body>
 <div class="page">
   <header class="lc">
-    <a class="logo" href="/"><img src="/logo.png" alt="Lazy Creatives home"></a>
+    <a class="brand" href="/" aria-label="Lazy Creatives home"><img src="/sloth-mark.png" alt="" width="30" height="38"><span><b>Lazy Creatives</b><small>Looks lazy. Works obsessively.</small></span></a>
     <nav aria-label="Site">
       <a href="/" aria-current="page">Download</a>
       <a href="/whats-changed.html">What's changed</a>
@@ -82,10 +84,10 @@
     </div>
 
     <div class="dl" id="download">
-      <article class="app live">
+      <article class="app">
         <div class="top">
-          <h2>Lazy Creatives <span>Backups</span></h2>
-          <span class="status beta">Free beta</span>
+          <h2><span>Backups</span><small>Lazy Creatives</small></h2>
+          <span class="tag">Free beta</span>
         </div>
         <div class="pitch"><p><b>Browse every project you've made</b> in one library: every Ableton, FL Studio, Logic Pro, Studio One, Bitwig, Reaper and Audacity project on your computer, searchable by name, tempo or genre, with the songs you exported ready to play.</p>
         <p><b>Back them up when you're ready.</b> It follows each project's samples, copies a complete deduplicated snapshot to a drive, NAS, Dropbox or Google Drive folder you choose, then re-reads every file to prove the backup opens.</p></div>
@@ -104,12 +106,12 @@
         <p class="fine">Downloads come straight from the official <a href="https://github.com/LazyCreatives/lazycreatives-backups/releases/latest">GitHub Releases page</a>. The beta isn't code-signed yet, so your computer will warn you the first time: <a href="/install.html">here's how to install it safely</a>.</p>
       </article>
 
-      <article class="app live">
+      <article class="app">
         <div class="top">
-          <h2>Lazy Creatives <span>Uploader</span></h2>
-          <span class="status beta">Free beta</span>
+          <h2><span>Uploader</span><small>Lazy Creatives</small></h2>
+          <span class="tag">Free beta</span>
         </div>
-        <p>Posts your finished mixes to SoundCloud without ever posting the same one twice, and lets you edit, hide or delete your existing tracks from one place. With Backups installed, each mix knows the project it came from.</p>
+        <div class="pitch"><p>Posts your finished mixes to SoundCloud without ever posting the same one twice, and lets you edit, hide or delete your existing tracks from one place. With Backups installed, each mix knows the project it came from.</p></div>
         <dl class="specs">
           <dt>Windows</dt><dd>10 or 11, 64-bit installer (.exe)</dd>
           <dt>macOS</dt><dd>macOS 13 (Ventura) or newer, Apple silicon (M1 or newer) only, disk image (.dmg)</dd>
@@ -151,7 +153,7 @@
           <li><b>FL Studio samples no longer show as missing when FL Studio plays them.</b> If a project still remembers a sample's old spot (another computer, a network address or a different user name), Backups now finds the same file in your own folders, the same way FL Studio does.</li>
         </ul>
       </div>
-      <div class="actions" style="margin-top:18px"><a class="btn" style="font-size:14px;padding:10px 18px" href="whats-changed.html#backups">See every Backups version →</a></div>
+      <div class="actions more"><a class="btn" href="whats-changed.html#backups">See every Backups version →</a></div>
       </div>
       <div role="tabpanel" id="panel-up" aria-labelledby="tab-up" hidden>
       <div class="top">
@@ -171,7 +173,7 @@
           <li><b>Everything is unlocked</b> while the app is a free beta.</li>
         </ul>
       </div>
-      <div class="actions" style="margin-top:18px"><a class="btn" style="font-size:14px;padding:10px 18px" href="whats-changed.html#uploader">See every Uploader version →</a></div>
+      <div class="actions more"><a class="btn" href="whats-changed.html#uploader">See every Uploader version →</a></div>
       </div>
     </div>
 

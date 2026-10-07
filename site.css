@@ -1,98 +1,107 @@
 /* =====================================================================
-   Lazy Creatives website — layout shared by every page on this site
+   Lazy Creatives website: layout shared by every page on this site
    (home, What's changed, Installing, Under the hood, Privacy, Licence).
-   Colours and buttons come from brand.css; this file adds the menu,
+   Colours, type and buttons come from brand.css; this file adds the menu,
    footer and the reusable content blocks. Load it after brand.css.
+   Lists are ruled tables with fixed columns, as in the apps.
    ===================================================================== */
-:root{color-scheme:dark}
-a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
 
 /* menu: same on every page; the current page carries aria-current="page" */
-header.lc{flex-wrap:wrap;row-gap:12px;margin-bottom:34px}
-header.lc .logo{display:block;line-height:0}
-header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
-header.lc nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;padding:2px 0;border-bottom:2px solid transparent}
-header.lc nav a:hover,header.lc nav a:focus-visible{color:var(--blue)}
-header.lc nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--blue)}
+header.lc{flex-wrap:wrap;row-gap:12px}
+header.lc nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:2px}
+header.lc nav a{color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:500;height:32px;display:flex;align-items:center;padding:0 10px;border-radius:var(--radius)}
+header.lc nav a:hover{background:var(--surface-2);color:var(--text)}
+header.lc nav a[aria-current="page"]{background:var(--surface-3);color:var(--text)}
 
-/* page top: big title, short intro, napping sloth */
-.hero{display:flex;align-items:center;gap:28px;margin-bottom:34px}
+/* page top: title, short intro, napping sloth */
+.hero{display:flex;align-items:center;gap:28px;margin-bottom:36px}
 .hero > div{min-width:0}
 .hero h1{text-wrap:balance}
 .hero .lede{margin-bottom:0}
-.nap{width:110px;height:110px;flex:0 0 auto}
+.nap{width:110px;height:110px;flex:0 0 auto;margin-left:auto}
 
-/* sections */
-section{margin-top:56px;scroll-margin-top:24px}
+/* sections: a heading, a short line that sums it up, then the text */
+section{margin-top:64px;scroll-margin-top:24px}
 .hero + section{margin-top:0}
-/* a section opens with its topic as a real heading, then a short bold line that sums it up */
-section > h2{font-size:clamp(24px,3.4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px;text-wrap:balance}
-section > .lead{font-size:17px;color:var(--ink);font-weight:600;max-width:60ch;margin-bottom:12px;text-wrap:balance}
-.kicker{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
-section > p,.prose p{color:var(--muted);max-width:66ch;margin-bottom:14px}
-section p b{color:var(--ink)}
-section p a,.facts a,.prose a{color:var(--blue)}
-code{font-family:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",monospace;font-size:.88em;color:var(--blue);background:rgba(134,179,211,.10);padding:1px 6px;border-radius:5px;overflow-wrap:anywhere}
+section > h2{font-size:clamp(22px,3vw,26px);font-weight:600;letter-spacing:-.015em;line-height:1.2;margin-bottom:6px;text-wrap:balance}
+section > .lead{font-size:16px;color:var(--text-dim);font-weight:500;max-width:60ch;margin-bottom:14px;text-wrap:balance}
+section > p,.prose p{color:var(--text-dim);max-width:66ch;margin-bottom:14px}
+section p b{color:var(--text);font-weight:600}
+section p a,.facts a,.prose a{color:var(--accent)}
+code{font-family:var(--mono);font-size:.86em;color:var(--accent);background:var(--surface-2);border:1px solid var(--border);padding:0 5px;border-radius:3px;overflow-wrap:anywhere}
 
-/* label / explanation rows that line up in two columns */
-.facts{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:18px}
-.fact{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
-.fact dt{font-weight:700;font-size:15px}
-.fact dd{color:var(--muted);font-size:14.5px}
-.fact dd b{color:var(--ink)}
+/* a small heading above a list, like the apps' column headings */
+.label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)}
 
-/* reads / writes / never columns */
-.touch{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:20px}
-.col{border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
-.col h4{font-size:15px;font-weight:800;margin-bottom:10px}
-.col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.col li{font-size:14px;color:#d2dbe4;padding-left:22px;position:relative}
-.col li::before{position:absolute;left:0;font-weight:800}
-.col.reads li::before{content:"→";color:var(--blue)}
-.col.writes li::before{content:"✓";color:var(--green)}
-.col.never{background:rgba(242,112,110,.05);border-color:rgba(242,112,110,.25)}
-.col.never li::before{content:"✕";color:var(--red)}
+/* label / explanation rows: one bordered block, rows split by lines, fixed label column */
+.facts{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--radius-lg);margin-top:18px;overflow:hidden}
+.fact{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 24px;padding:14px 18px;border-top:1px solid var(--border)}
+.fact:first-child{border-top:0}
+.fact:nth-child(even){background:var(--zebra)}
+.fact dt{font-weight:600;font-size:15px}
+.fact dd{color:var(--text-dim);font-size:15px}
+.fact dd b{color:var(--text);font-weight:600}
 
-/* numbered steps */
-.steps{display:flex;flex-direction:column;gap:12px;margin-top:18px;counter-reset:s;list-style:none}
-.steps li{position:relative;padding:14px 18px 14px 58px;border:1px solid var(--line);border-radius:12px;background:var(--console);color:#d2dbe4;font-size:14.5px;min-width:0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:12px;width:28px;height:28px;border-radius:99px;
-  background:rgba(134,179,211,.14);color:var(--blue);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-.steps li b{color:var(--ink)}
-.os{margin-top:26px}
-.os h4{font-size:16px;font-weight:800;margin-bottom:-6px}
-.warn{margin-top:18px;border:1px solid rgba(245,196,81,.35);background:rgba(245,196,81,.06);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#e9e1c9}
-.warn b{color:var(--gold)} .warn a{color:var(--gold)}
-pre{margin-top:10px;overflow-x:auto;background:#0d1116;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-pre code{background:none;padding:0;color:var(--green)}
+/* reads / writes / never: three columns of one block, each with a coloured stripe */
+.touch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:20px;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.col{padding:16px 18px 18px;min-width:0;border-left:1px solid var(--border);box-shadow:inset 0 3px 0 var(--c,var(--accent))}
+.col:first-child{border-left:0}
+.col.reads{--c:var(--accent)} .col.writes{--c:var(--ok)} .col.never{--c:var(--danger);background:var(--danger-soft)}
+.col h4{font-size:15px;font-weight:600;margin-bottom:10px}
+.col ul{list-style:none;display:flex;flex-direction:column}
+.col li{font-size:14.5px;color:var(--text-dim);padding:7px 0 7px 22px;position:relative;border-top:1px solid var(--border)}
+.col li::before{position:absolute;left:0;font-weight:700;color:var(--c)}
+.col.reads li::before{content:"→"}
+.col.writes li::before{content:"✓"}
+.col.never li::before{content:"✕"}
 
-/* link cards ("read more" tiles) */
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;margin-top:20px}
-a.tile{display:flex;flex-direction:column;gap:6px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--console);transition:.15s;min-width:0}
-a.tile:hover{border-color:rgba(134,179,211,.5)}
-a.tile h4{font-size:16px;font-weight:800}
-a.tile p{color:var(--muted);font-size:14px}
-a.tile .more{margin-top:auto;padding-top:6px;color:var(--blue);font-size:13.5px;font-weight:700}
+/* numbered steps: ruled rows with the number in its own column */
+.steps{display:flex;flex-direction:column;margin-top:16px;counter-reset:s;list-style:none;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.steps li{position:relative;padding:14px 18px 14px 52px;border-top:1px solid var(--border);color:var(--text-dim);font-size:15px;min-width:0}
+.steps li:first-child{border-top:0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:14px;width:36px;text-align:right;color:var(--accent);font-weight:600}
+.steps li b{color:var(--text);font-weight:600}
+.os{margin-top:28px}
+.os h4{font-size:16px;font-weight:600;margin-bottom:-4px}
+.warn{margin-top:18px;border:1px solid var(--border);border-left:3px solid var(--warn);background:var(--warn-soft);border-radius:var(--radius);padding:14px 18px;font-size:15px;color:var(--text)}
+.warn b{color:var(--warn)} .warn a{color:var(--warn)}
+pre{margin-top:10px;overflow-x:auto;background:var(--well);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+pre code{background:none;border:0;padding:0;color:var(--ok)}
 
-/* Backups / Uploader switch */
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.tabs button{font:inherit;font-size:13.5px;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
-.tabs button:hover{color:var(--ink)}
-.tabs button[aria-selected="true"]{color:var(--ink);background:rgba(134,179,211,.14);border-color:rgba(134,179,211,.5)}
-.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+/* "read more" links: one ruled strip split by lines, not floating cards */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;margin-top:18px;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--border)}
+a.tile{display:flex;flex-direction:column;gap:6px;text-decoration:none;padding:18px 20px;background:var(--bg);min-width:0;transition:background .14s}
+a.tile:hover{background:var(--surface-2)}
+a.tile h4{font-size:16px;font-weight:600}
+a.tile p{color:var(--text-dim);font-size:14.5px}
+a.tile .more{margin-top:auto;padding-top:6px;color:var(--accent);font-size:14px;font-weight:500}
+
+/* Backups / Uploader switch: the apps' joined buttons */
+.tabs{display:inline-flex;border:1px solid var(--border-strong);border-radius:var(--radius);overflow:hidden;margin-bottom:18px}
+.tabs button{font:inherit;font-size:14px;font-weight:500;color:var(--text-dim);background:var(--surface);border:0;border-left:1px solid var(--border-strong);height:34px;padding:0 16px;cursor:pointer}
+.tabs button:first-child{border-left:0}
+.tabs button:hover{color:var(--text);background:var(--surface-2)}
+.tabs button[aria-selected="true"]{color:var(--text);background:var(--surface-3)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 [hidden]{display:none !important}
 
 /* footer: same on every page */
 footer.lc{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
 footer.lc nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-left:auto}
-footer.lc nav a{color:var(--muted);font-weight:600}
-footer.lc nav a:hover{color:var(--blue)}
+footer.lc nav a{color:var(--text-dim);font-weight:500}
+footer.lc nav a:hover{color:var(--accent)}
 
+@media(max-width:720px){
+  .touch{grid-template-columns:1fr}
+  .col{border-left:0;border-top:1px solid var(--border)}
+  .col:first-child{border-top:0}
+}
 @media(max-width:640px){
+  header.lc{margin-bottom:28px}
   .hero{flex-direction:column-reverse;align-items:flex-start;gap:8px}
-  .nap{width:84px;height:84px}
-  .fact{grid-template-columns:1fr}
-  header.lc nav{margin-left:0;width:100%}
+  .nap{width:80px;height:80px;margin-left:0}
+  .fact{grid-template-columns:1fr;padding:12px 14px}
+  header.lc nav{margin-left:-10px;width:calc(100% + 10px)}
   footer.lc nav{margin-left:0}
 }
 @media(prefers-reduced-motion:reduce){.nap{display:none}}
