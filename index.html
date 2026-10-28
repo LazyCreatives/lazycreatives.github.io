@@ -80,6 +80,32 @@
     .job i{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:2px}
     .job .with i{color:var(--accent)}
   }
+  /* the reel: a tall still picture beside the headline, YouTube loads on press */
+  .reel{flex:0 0 auto;margin-left:auto;width:200px;display:grid;gap:10px}
+  .reel button,.reel video{display:block;width:100%;aspect-ratio:9/16;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface)}
+  .reel button{position:relative;padding:0;overflow:hidden;cursor:pointer}
+  .reel button img{display:block;width:100%;height:100%;object-fit:cover}
+  .reel .play{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;background:var(--accent);box-shadow:0 4px 18px rgba(0,0,0,.45);transition:transform .15s}
+  .reel .play::after{content:"";position:absolute;left:24px;top:19px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent var(--accent-ink)}
+  .reel button:hover .play{transform:scale(1.08)}
+  .reel button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .reel figcaption{display:grid;gap:2px;font-size:13.5px;text-align:center}
+  .reel figcaption b{color:var(--text);font-weight:600}
+  .reel figcaption span{color:var(--text-faint)}
+  .reel video{grid-area:1/1;height:auto;object-fit:cover}
+  .reel button{grid-area:1/1;z-index:1}
+  .reel.on button{display:none}
+  @media (max-width:640px){
+    .hero{flex-direction:column}
+    .reel{margin:12px 0 0;width:100%;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:16px}
+    .reel figcaption{text-align:left;font-size:15px}
+    .reel .play{width:40px;height:40px;margin:-20px 0 0 -20px}
+    .reel .play::after{left:16px;top:12px;border-width:8px 0 8px 13px}
+    .reel.on{grid-template-columns:minmax(0,1fr)}
+    .reel.on video{width:min(100%,300px)}
+    .reel.on figcaption{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){.reel .play{transition:none}}
 </style>
 </head>
 <body>
@@ -102,7 +128,16 @@
         <h1>You make the music. <span class="g">We'll handle the files.</span></h1>
         <p class="lede">Lazy Creatives lays out every project you've made to browse and play, matches each to the songs you exported, backs them up if you want, and posts your songs to SoundCloud without doubles. Browsing needs no backup. It runs on your own computer, needs no account, and never changes your projects. <a href="#jobs">The jobs you stop doing ↓</a></p>
       </div>
-      <img class="nap" src="/napping.webp" alt="" width="110" height="110">
+      <!-- The 60-second reel, served from this site. Only the still picture loads with
+           the page; the video itself loads when someone presses play. -->
+      <figure class="reel">
+        <video src="/reel.mp4" poster="/reel-poster.webp" preload="none" playsinline width="200" height="356" title="Lazy Creatives in 60 seconds"></video>
+        <button type="button" aria-label="Play the 60-second video of Lazy Creatives">
+          <img src="/reel-poster.webp" alt="" width="200" height="356">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <figcaption><b>See it in 60 seconds</b><span>Sound on</span></figcaption>
+      </figure>
     </div>
 
     <div class="dl" id="download">
@@ -312,6 +347,11 @@
   load("lazycreatives-backups","bk");
   load("lazycreatives-uploader","up");
 })();
+</script>
+<script>
+/* The reel's play button: hide the still picture and play the video with its controls. */
+(function(){var b=document.querySelector('.reel button');if(!b)return;b.addEventListener('click',function(){
+  var v=b.parentNode.querySelector('video');b.parentNode.classList.add('on');v.controls=true;v.play();v.focus();});})();
 </script>
 </body>
 </html>
