@@ -92,7 +92,10 @@
   .reel figcaption{display:grid;gap:2px;font-size:13.5px;text-align:center}
   .reel figcaption b{color:var(--text);font-weight:600}
   .reel figcaption span{color:var(--text-faint)}
-  .reel video{grid-area:1/1;height:auto;object-fit:cover}
+  .reel video{grid-area:1/1;height:auto;object-fit:contain}
+  /* full screen: show the whole tall video on black, not cropped to the screen */
+  .reel video:fullscreen{width:100%;height:100%;object-fit:contain;border:0;border-radius:0;background:#000}
+  .reel video:-webkit-full-screen{width:100%;height:100%;object-fit:contain;border:0;border-radius:0;background:#000}
   .reel button{grid-area:1/1;z-index:1}
   .reel.on button{display:none}
   @media (max-width:640px){
